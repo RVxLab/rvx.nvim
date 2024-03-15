@@ -6,7 +6,7 @@ My Neovim config from scratch
 
 ## Features
 
-- [Catppuccin Frappe 🐈‍⬛](https://github.com/catppuccin/nvim) colour scheme
+- [Catppuccin Frappe 🐈](https://github.com/catppuccin/nvim) colour scheme
 - [Lazy package management](https://github.com/folke/lazy.nvim)
 - Minimal UI using [mini.nvim](https://github.com/echasnovski/mini.nvim)
 - LSP using [Mason](https://github.com/williamboman/mason.nvim)
