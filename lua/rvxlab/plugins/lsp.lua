@@ -9,10 +9,8 @@ return {
         "folke/neodev.nvim",
     },
     config = function ()
-        vim.lsp.set_log_level('debug')
-
         -- Ensure Neodev is set up first
-        require('neodev').setup()
+        require('neodev').setup({})
 
         -- Initialize Mason and LSP Config
         require('mason').setup()
@@ -36,7 +34,15 @@ return {
                 })
             end,
             ['lua_ls'] = function ()
-                require('lspconfig').lua_ls.setup({})
+                require('lspconfig').lua_ls.setup({
+                    settings = {
+                        Lua = {
+                            completion = {
+                                callSnippet = "Replace",
+                            },
+                        },
+                    },
+                })
             end,
         })
 
