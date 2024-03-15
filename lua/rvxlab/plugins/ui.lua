@@ -57,4 +57,21 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
     },
+    {
+        "echasnovski/mini.starter",
+        version = false,
+        opts = function ()
+            local starter = require('mini.starter')
+
+            return {
+                header = require('art.header'),
+                items = {
+                    starter.sections.builtin_actions(),
+                    starter.sections.telescope(),
+                    starter.sections.recent_files(10, true, true),
+                },
+            }
+        end,
+    },
 }
+

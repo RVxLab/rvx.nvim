@@ -39,7 +39,7 @@ My Neovim config from scratch
 - [ ] Replace [mini.surround](https://github.com/echasnovski/mini.surround) with [surround.vim](https://github.com/tpope/vim-surround)
 - [ ] Add a terminal plugin
 - [ ] Expand keybind registrations in which-key
-- [ ] Add a dashboard
+- [x] Add a dashboard
 - [ ] Add tons of comments to explain my reasoning so others can use this to learn from
 - [ ] Add Stylua to enforce some consistency in here
 - [ ] Add plugin to enforce .editorconfig file
