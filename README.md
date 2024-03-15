@@ -41,6 +41,6 @@ My Neovim config from scratch
 - [ ] Expand keybind registrations in which-key
 - [x] Add a dashboard
 - [ ] Add tons of comments to explain my reasoning so others can use this to learn from
-- [ ] Add Stylua to enforce some consistency in here
+- [x] Add Stylua to enforce some consistency in here
 - [ ] Add plugin to enforce .editorconfig file
 
