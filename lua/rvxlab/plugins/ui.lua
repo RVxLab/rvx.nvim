@@ -7,21 +7,22 @@ return {
         opts = {
             flavour = "frappe",
         },
-        config = function (_, opts)
-            require('catppuccin').setup(opts)
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
 
-            vim.cmd.colorscheme('catppuccin')
-        end
+            vim.cmd.colorscheme("catppuccin")
+        end,
     },
     {
         "folke/which-key.nvim",
         event = "VimEnter",
         opts = true,
         priority = 100, -- Ensure Which Key is loaded before a lot of plugins
-        init = function ()
-            require('which-key').register({
-                ['<leader>L'] = { name = '[L]azy', _ = 'which_key_ignore' },
-                ['<leader>s'] = { name = '[S]urround', _ = 'which_key_ignore' },
+        init = function()
+            require("which-key").register({
+                ["<leader>L"] = { name = "[L]azy", _ = "which_key_ignore" },
+                ["<leader>s"] = { name = "[S]urround", _ = "which_key_ignore" },
+                ["<leader>g"] = { name = "[G]eneral actions", _ = "which_key_ignore" },
             })
         end,
     },
@@ -45,11 +46,11 @@ return {
         "echasnovski/mini.files",
         version = false,
         opts = true,
-        config = function (_, opts)
-            local files = require('mini.files')
+        config = function(_, opts)
+            local files = require("mini.files")
             files.setup(opts)
 
-            vim.keymap.set('n', '<leader>e', files.open, {
+            vim.keymap.set("n", "<leader>e", files.open, {
                 desc = "[E]xplore filesystem",
             })
         end,
@@ -60,11 +61,11 @@ return {
     {
         "echasnovski/mini.starter",
         version = false,
-        opts = function ()
-            local starter = require('mini.starter')
+        opts = function()
+            local starter = require("mini.starter")
 
             return {
-                header = require('art.header'),
+                header = require("art.header"),
                 items = {
                     starter.sections.builtin_actions(),
                     starter.sections.telescope(),
@@ -74,4 +75,3 @@ return {
         end,
     },
 }
-

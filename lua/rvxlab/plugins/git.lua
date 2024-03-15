@@ -11,23 +11,19 @@ return {
     },
     {
         "kdheepak/lazygit.nvim",
-    	cmd = {
-    		"LazyGit",
-    		"LazyGitConfig",
-    		"LazyGitCurrentFile",
-    		"LazyGitFilter",
-    		"LazyGitFilterCurrentFile",
-    	},
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        init = function ()
-            require('which-key').register({
-                ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore', }
-            })
-
-            vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>', {
-                desc = 'Open Lazy[G]it',
+        init = function()
+            vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", {
+                desc = "Open Lazy[G]it",
             })
         end,
     },

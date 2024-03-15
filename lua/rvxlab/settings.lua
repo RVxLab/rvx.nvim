@@ -1,6 +1,6 @@
 -- Set leader to be a space
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Enable line numbers + relative numbers
 -- relativenumber gets disabled in insert mode
@@ -24,10 +24,9 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Better completion experience, see :help completeopt
-vim.o.wildmode = 'longest:full,full'
-vim.o.completeopt = 'menuone,longest,preview'
+vim.o.wildmode = "longest:full,full"
+vim.o.completeopt = "menuone,longest,preview"
 
 -- Timeouts for plugins like which-key
 vim.o.timeout = true
 vim.o.timeoutlen = 300
-

@@ -1,17 +1,17 @@
 -- Everything related to the editor part
 return {
     {
-        'echasnovski/mini.surround',
+        "echasnovski/mini.surround",
         version = false,
         opts = true,
     },
     {
-        'echasnovski/mini.comment',
+        "echasnovski/mini.comment",
         version = false,
         opts = true,
     },
     {
-        'echasnovski/mini.pairs',
+        "echasnovski/mini.pairs",
         version = false,
         opts = true,
     },
