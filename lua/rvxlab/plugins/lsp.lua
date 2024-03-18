@@ -88,12 +88,14 @@ return {
     {
         "nvimtools/none-ls.nvim",
         dependencies = {
+            "nvimtools/none-ls-extras.nvim",
             "nvim-lua/plenary.nvim",
         },
         opts = function()
             local none_ls = require("null-ls")
 
             return {
+                debug = true,
                 on_attach = function(client, buffer)
                     if client.supports_method("textDocument/formatting") then
                         vim.api.nvim_clear_autocmds({
@@ -119,6 +121,10 @@ return {
                     -- PHP
                     none_ls.builtins.diagnostics.phpstan,
                     none_ls.builtins.formatting.pint,
+
+                    -- TS/JS
+                    none_ls.builtins.formatting.prettierd,
+                    require('none-ls.diagnostics.eslint_d'),
                 },
             }
         end,
