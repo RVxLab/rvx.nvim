@@ -4,6 +4,11 @@ return {
         "echasnovski/mini.surround",
         version = false,
         opts = true,
+        init = function()
+            require("which-key").register({
+                ["<leader>s"] = { name = "[S]urround", _ = "which_key_ignore" },
+            })
+        end,
     },
     {
         "echasnovski/mini.comment",

@@ -18,6 +18,9 @@ return {
         opts = true,
         init = function()
             require("telescope").load_extension("laravel")
+            require("which-key").register({
+                ["<leader>l"] = { name = "[L]aravel", _ = "which_key_ignore" },
+            })
         end,
     },
 }
