@@ -35,8 +35,7 @@ My Neovim config from scratch
         - [ ] [Clippy](https://github.com/rust-lang/rust-clippy)
     - [ ] Set up diagnostics bindings
     - [ ] Add some more useful LSPs, like JSON, YAML, Markdown, etc
-    - [ ] Fix Neodev/Lua LSP completion
-- [ ] Replace [mini.surround](https://github.com/echasnovski/mini.surround) with [surround.vim](https://github.com/tpope/vim-surround)
+    - [ ] Fix CMP completion
 - [ ] Add a terminal plugin
 - [ ] Expand keybind registrations in which-key
 - [x] Add a dashboard
