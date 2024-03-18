@@ -56,7 +56,12 @@ return {
 
             local default_config = {
                 capabilities = capabilities,
-                on_attach = function(_, buffer)
+                on_attach = function(client, buffer)
+                    -- Enable inlay hints if the current language server supports it
+                    if client.server_capabilities.inlayHintProvider then
+                        vim.lsp.inlay_hint.enable(buffer, true)
+                    end
+
                     vim.keymap.set({ "n", "i" }, "<C-k>", function()
                         -- Close any nvim-cmp window that could be open
                         cmp.abort()
