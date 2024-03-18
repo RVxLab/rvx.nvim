@@ -21,11 +21,11 @@ My Neovim config from scratch
 ## Todo
 
 - [ ] Finish setting up LSP + Tools
-    - [ ] PHP
-        - [ ] [PHPActor](https://github.com/phpactor/phpactor)
-        - [ ] [PHPStan](https://phpstan.org/)
-        - [ ] [Pint](https://laravel.com/docs/10.x/pint)
-        - [ ] Add Laravel specific features and snippets
+    - [x] PHP
+        - [x] [PHPActor](https://github.com/phpactor/phpactor)
+        - [x] [PHPStan](https://phpstan.org/)
+        - [x] [Pint](https://laravel.com/docs/10.x/pint)
+        - [x] Add Laravel specific features and snippets
     - [ ] JavaScript/TypeScript
         - [ ] [ESLint](https://eslint.org)
         - [ ] [Prettier](https://prettier.io)
