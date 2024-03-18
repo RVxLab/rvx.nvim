@@ -41,4 +41,3 @@ My Neovim config from scratch
 -   [x] Add a dashboard
 -   [ ] Add tons of comments to explain my reasoning so others can use this to learn from
 -   [x] Add Stylua to enforce some consistency in here
--   [ ] Add plugin to enforce .editorconfig file
