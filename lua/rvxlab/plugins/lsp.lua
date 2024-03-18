@@ -124,7 +124,7 @@ return {
 
                     -- TS/JS
                     none_ls.builtins.formatting.prettierd,
-                    require('none-ls.diagnostics.eslint_d'),
+                    require("none-ls.diagnostics.eslint_d"),
                 },
             }
         end,
