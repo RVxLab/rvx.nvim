@@ -30,3 +30,6 @@ vim.o.completeopt = "menuone,longest,preview"
 -- Timeouts for plugins like which-key
 vim.o.timeout = true
 vim.o.timeoutlen = 300
+
+-- Term ui colors for better looking stuff
+vim.o.termguicolors = true
