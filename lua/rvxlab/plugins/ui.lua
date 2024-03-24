@@ -69,7 +69,10 @@ return {
                     starter.sections.builtin_actions(),
                     starter.sections.telescope(),
                     starter.sections.recent_files(10, true, true),
+                    { name = "Lazy",  action = "Lazy",  section = "General" },
+                    { name = "Mason", action = "Mason", section = "General" },
                 },
+                silent = true,
             }
         end,
     },
