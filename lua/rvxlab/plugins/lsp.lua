@@ -12,6 +12,7 @@ return {
             "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "folke/neodev.nvim",
+            "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         },
         config = function()
             -- Ensure Neodev is set up first
@@ -85,6 +86,45 @@ return {
 
                     require("lspconfig")[server_name].setup(config)
                 end,
+            })
+
+            -- General LSP keybinds
+            local telescope = require('telescope.builtin')
+
+            vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
+                desc = "Open [D]iagnostic window",
+            })
+
+            vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, {
+                desc = "Code [A]ction",
+            })
+
+            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {
+                desc = "Go to previous error",
+            })
+
+            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {
+                desc = "Go to next error",
+            })
+
+            vim.keymap.set('n', '<leader>gr', telescope.lsp_references, {
+                desc = "Find [R]eferences",
+            })
+
+            vim.keymap.set('n', '<leader>gr', telescope.lsp_implementations, {
+                desc = "Find [I]mplementations",
+            })
+
+            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {
+                desc = "[R]e[n]ame symbol"
+            })
+
+            -- Enable LSP Lines to get some nicer diagnostics
+            require("lsp_lines").setup()
+
+            -- Disable vim diagnostics since lsp_lines takes care of this now
+            vim.diagnostic.config({
+                virtual_text = false,
             })
         end,
     },
