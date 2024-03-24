@@ -33,7 +33,7 @@ My Neovim config from scratch
     -   [ ] Rust
         -   [ ] [Rustfmt](https://github.com/rust-lang/rustfmt)
         -   [ ] [Clippy](https://github.com/rust-lang/rust-clippy)
-    -   [ ] Set up diagnostics bindings
+    -   [x] Set up diagnostics bindings
     -   [ ] Add some more useful LSPs, like JSON, YAML, Markdown, etc
     -   [ ] Fix CMP completion
 -   [ ] Add a terminal plugin
