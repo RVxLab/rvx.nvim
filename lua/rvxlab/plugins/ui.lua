@@ -40,22 +40,37 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
+        init = function()
+            vim.keymap.set("n", "<", vim.cmd.bprevious, {
+                desc = "Select the previous buffer",
+            })
+
+            vim.keymap.set("n", ">", vim.cmd.bnext, {
+                desc = "Select the next buffer",
+            })
+        end,
     },
     {
         "echasnovski/mini.files",
         version = false,
-        opts = true,
-        config = function(_, opts)
-            local files = require("mini.files")
-            files.setup(opts)
-
-            vim.keymap.set("n", "<leader>e", files.open, {
-                desc = "[E]xplore filesystem",
-            })
-        end,
+        opts = {
+            windows = {
+                preview = true,
+            },
+        },
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
+        init = function()
+            local files = require("mini.files")
+            require("which-key").register({
+                ["<leader>e"] = { name = "[E]xplore filesystem", _ = "which_key_ignore" },
+            })
+
+            vim.keymap.set("n", "<leader>ee", files.open, {
+                desc = "[E]xplore filesystem",
+            })
+        end,
     },
     {
         "echasnovski/mini.starter",

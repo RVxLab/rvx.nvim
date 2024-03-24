@@ -1,7 +1,7 @@
 local M = {}
 
 function M.bind(fn, ...)
-    local args = {...}
+    local args = { ... }
 
     return function()
         local unpack = table.unpack or unpack
