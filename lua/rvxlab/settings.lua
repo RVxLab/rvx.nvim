@@ -33,3 +33,7 @@ vim.o.timeoutlen = 300
 
 -- Term ui colors for better looking stuff
 vim.o.termguicolors = true
+
+-- Disable netrw for NvimTree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

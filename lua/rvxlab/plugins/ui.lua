@@ -26,12 +26,9 @@ return {
         end,
     },
     {
-        "echasnovski/mini.statusline",
-        version = false,
-        opts = true,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
     },
     {
         "echasnovski/mini.tabline",
@@ -51,24 +48,36 @@ return {
         end,
     },
     {
-        "echasnovski/mini.files",
-        version = false,
-        opts = {
-            windows = {
-                preview = true,
-            },
-        },
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
+        opts = {
+            view = {
+                float = {
+                    enable = true,
+                },
+            },
+        },
         init = function()
-            local files = require("mini.files")
+            local tree = require("nvim-tree.api").tree
+
             require("which-key").register({
                 ["<leader>e"] = { name = "[E]xplore filesystem", _ = "which_key_ignore" },
             })
 
-            vim.keymap.set("n", "<leader>ee", files.open, {
-                desc = "[E]xplore filesystem",
+            vim.keymap.set("n", "<leader>ee", tree.open, {
+                desc = "Open tree",
+            })
+
+            vim.keymap.set("n", "<leader>eE", tree.close, {
+                desc = "Close tree",
+            })
+
+            vim.keymap.set("n", "<leader>et", tree.toggle, {
+                desc = "Toggle tree",
             })
         end,
     },

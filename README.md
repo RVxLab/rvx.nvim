@@ -8,7 +8,6 @@ My Neovim config from scratch
 
 -   [Catppuccin Frappe 🐈](https://github.com/catppuccin/nvim) colour scheme
 -   [Lazy package management](https://github.com/folke/lazy.nvim)
--   Minimal UI using [mini.nvim](https://github.com/echasnovski/mini.nvim)
 -   LSP using [Mason](https://github.com/williamboman/mason.nvim)
 -   Completion using [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 -   Lazygit integration
