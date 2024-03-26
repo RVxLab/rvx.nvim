@@ -108,11 +108,15 @@ return {
             })
 
             vim.keymap.set("n", "<leader>gr", telescope.lsp_references, {
-                desc = "Find [R]eferences",
+                desc = "Find [r]eferences",
             })
 
             vim.keymap.set("n", "<leader>gi", telescope.lsp_implementations, {
-                desc = "Find [I]mplementations",
+                desc = "Find [i]mplementations",
+            })
+
+            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {
+                desc = "Go to [d]efinition",
             })
 
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
