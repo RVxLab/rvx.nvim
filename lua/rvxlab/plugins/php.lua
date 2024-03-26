@@ -23,4 +23,17 @@ return {
             })
         end,
     },
+    {
+        "phpactor/phpactor",
+        ft = "php",
+        keys = {
+            { "<leader>pm", ":PhpactorContextMenu<CR>" },
+            { "<leader>pc", ":PhpactorClassNew<CR>" },
+        },
+        init = function()
+            require("which-key").register({
+                ["<leader>p"] = { name = "[P]HP", _ = "which_key_ignore" },
+            })
+        end,
+    },
 }

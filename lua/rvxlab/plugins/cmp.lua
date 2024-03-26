@@ -23,7 +23,7 @@ return {
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<Esc>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({
-                    select = false,
+                    select = true,
                 }),
             }),
             sources = cmp.config.sources({
