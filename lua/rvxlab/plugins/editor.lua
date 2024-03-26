@@ -1,23 +1,10 @@
 -- Everything related to the editor part
 return {
+    { "tpope/vim-surround" },
+    { "tpope/vim-commentary" },
     {
-        "echasnovski/mini.surround",
-        version = false,
-        opts = true,
-        init = function()
-            require("which-key").register({
-                ["<leader>s"] = { name = "[S]urround", _ = "which_key_ignore" },
-            })
-        end,
-    },
-    {
-        "echasnovski/mini.comment",
-        version = false,
-        opts = true,
-    },
-    {
-        "echasnovski/mini.pairs",
-        version = false,
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
         opts = true,
     },
     {
