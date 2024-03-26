@@ -89,7 +89,7 @@ return {
             })
 
             -- General LSP keybinds
-            local telescope = require('telescope.builtin')
+            local telescope = require("telescope.builtin")
 
             vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
                 desc = "Open [D]iagnostic window",
@@ -107,16 +107,16 @@ return {
                 desc = "Go to next error",
             })
 
-            vim.keymap.set('n', '<leader>gr', telescope.lsp_references, {
+            vim.keymap.set("n", "<leader>gr", telescope.lsp_references, {
                 desc = "Find [R]eferences",
             })
 
-            vim.keymap.set('n', '<leader>gr', telescope.lsp_implementations, {
+            vim.keymap.set("n", "<leader>gi", telescope.lsp_implementations, {
                 desc = "Find [I]mplementations",
             })
 
-            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {
-                desc = "[R]e[n]ame symbol"
+            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
+                desc = "[R]e[n]ame symbol",
             })
 
             -- Enable LSP Lines to get some nicer diagnostics
