@@ -21,6 +21,7 @@
   "neotest": { "branch": "master", "commit": "e07fe8241112274aae9947b98d255763738a1d52" },
   "neotest-jest": { "branch": "main", "commit": "514fd4eae7da15fd409133086bb8e029b65ac43f" },
   "neotest-pest": { "branch": "main", "commit": "25501800b5b8da578a03bb178a007d6f8abe7ae3" },
+  "noice.nvim": { "branch": "main", "commit": "d29b26c329558ee4bb2e7f3cc25078929ef89b2f" },
   "none-ls-extras.nvim": { "branch": "main", "commit": "4f6ba0c4a317a630157bc02fad110fcd826e9494" },
   "none-ls.nvim": { "branch": "main", "commit": "18910d09d21d7df339805343bfe4a2b2e41c057b" },
   "nui.nvim": { "branch": "main", "commit": "cbd2668414331c10039278f558630ed19b93e69b" },
