@@ -10,11 +10,13 @@ return {
             -- Adapters
 
             "V13Axel/neotest-pest",
+            "nvim-neotest/neotest-jest",
         },
         opts = function()
             return {
                 adapters = {
                     require("neotest-pest"),
+                    require("neotest-jest"),
                 },
             }
         end,
