@@ -25,10 +25,11 @@ return {
     },
     {
         "phpactor/phpactor",
+        build = "composer install --no-dev -o",
         ft = "php",
         keys = {
             { "<leader>pm", ":PhpactorContextMenu<CR>" },
-            { "<leader>pc", ":PhpactorClassNew<CR>" },
+            { "<leader>pn", ":PhpactorClassNew<CR>" },
         },
         init = function()
             require("which-key").register({
