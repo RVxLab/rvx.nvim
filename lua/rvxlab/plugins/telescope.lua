@@ -5,30 +5,71 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
+            { "nvim-telescope/telescope-fzf-native.nvim",     build = "make" },
+            { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0" },
         },
-        config = function()
-            local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, {
-                desc = "[F]ind files",
-            })
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep, {
-                desc = "[G]rep for files using Ripgrep",
-            })
-            vim.keymap.set("n", "<leader>fb", builtin.buffers, {
-                desc = "[B]uffer search",
-            })
-            vim.keymap.set("n", "<leader>fh", builtin.help_tags, {
-                desc = "[H]elp with tags",
-            })
+        opts = function()
+            local actions = require("telescope.actions")
+
+            return {
+                defaults = {
+                    mappings = {
+                        i = {
+                            ["<Esc>"] = actions.close, -- Remove the double esc need in Telescope
+                        },
+                    },
+                    file_ignore_patterns = { ".git/" },
+                },
+                pickers = {
+                    find_files = {
+                        hidden = true,
+                    },
+                },
+            }
         end,
         init = function()
+            local telescope = require("telescope")
+            local builtin = require("telescope.builtin")
+            local util = require("rvxlab.util")
+
+            telescope.load_extension("fzf")
+            telescope.load_extension("live_grep_args")
+
             require("which-key").register({
                 ["<leader>f"] = { name = "[F]ind with Telescope", _ = "which_key_ignore" },
             })
+
+            vim.keymap.set("n", "<leader>ff", builtin.find_files, {
+                desc = "[F]ind files",
+            })
+
+            vim.keymap.set(
+                "n",
+                "<leader>fF",
+                util.bind(builtin.find_files, {
+                    prompt_title = "All files",
+                    no_ignore = true,
+                }),
+                {
+                    desc = "[F]ind all files",
+                }
+            )
+
+            vim.keymap.set("n", "<leader>fg", telescope.extensions.live_grep_args.live_grep_args, {
+                desc = "[G]rep for files using Ripgrep",
+            })
+
+            vim.keymap.set("n", "<leader>fb", builtin.buffers, {
+                desc = "[B]uffer search",
+            })
+
+            vim.keymap.set("n", "<leader>fh", builtin.oldfiles, {
+                desc = "[H]istory",
+            })
+
+            vim.keymap.set("n", "<leader>fs", builtin.lsp_workspace_symbols, {
+                desc = "Find [s]ymbols",
+            })
         end,
-    },
-    {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
     },
 }
