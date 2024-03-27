@@ -67,8 +67,8 @@ return {
                 desc = "[H]istory",
             })
 
-            vim.keymap.set("n", "<leader>fs", builtin.lsp_workspace_symbols, {
-                desc = "Find [s]ymbols",
+            vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, {
+                desc = "Find [s]ymbols in document",
             })
         end,
     },
