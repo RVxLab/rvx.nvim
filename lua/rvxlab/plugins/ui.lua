@@ -7,9 +7,7 @@ return {
         opts = {
             flavour = "frappe",
         },
-        config = function(_, opts)
-            require("catppuccin").setup(opts)
-
+        init = function()
             vim.cmd.colorscheme("catppuccin")
         end,
     },
@@ -31,11 +29,26 @@ return {
         opts = {},
     },
     {
-        "echasnovski/mini.tabline",
-        version = false,
-        opts = true,
+        "akinsho/bufferline.nvim",
+        opts = {
+            options = {
+                show_close_icon = false,
+                tab_size = 0,
+                max_name_length = 31,
+                separator_style = "slant",
+                modified_icon = "",
+                custom_areas = {
+                    left = function()
+                        return {
+                            { text = "  ", fg = "#00B4FF" },
+                        }
+                    end,
+                },
+            },
+        },
         dependencies = {
             "nvim-tree/nvim-web-devicons",
+            "catppuccin",
         },
         init = function()
             vim.keymap.set("n", "<", vim.cmd.bprevious, {
@@ -52,7 +65,7 @@ return {
         version = "*",
         lazy = false,
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = require('rvxlab.util').bind(require, 'rvxlab.config.nvim-tree')
+        config = require("rvxlab.util").bind(require, "rvxlab.config.nvim-tree"),
     },
     {
         "echasnovski/mini.starter",
@@ -91,5 +104,10 @@ return {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
         },
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
     },
 }
