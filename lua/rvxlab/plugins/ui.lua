@@ -51,35 +51,8 @@ return {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        opts = {
-            view = {
-                float = {
-                    enable = true,
-                },
-            },
-        },
-        init = function()
-            local tree = require("nvim-tree.api").tree
-
-            require("which-key").register({
-                ["<leader>e"] = { name = "[E]xplore filesystem", _ = "which_key_ignore" },
-            })
-
-            vim.keymap.set("n", "<leader>ee", tree.open, {
-                desc = "Open tree",
-            })
-
-            vim.keymap.set("n", "<leader>eE", tree.close, {
-                desc = "Close tree",
-            })
-
-            vim.keymap.set("n", "<leader>et", tree.toggle, {
-                desc = "Toggle tree",
-            })
-        end,
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = require('rvxlab.util').bind(require, 'rvxlab.config.nvim-tree')
     },
     {
         "echasnovski/mini.starter",
