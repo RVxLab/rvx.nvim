@@ -5,34 +5,9 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp",
-        {
-            "L3MON4D3/LuaSnip",
-            version = "^2.0",
-        },
+        { "L3MON4D3/LuaSnip", version = "^2.0" },
+        "onsails/lspkind.nvim",
     },
-    config = function()
-        local cmp = require("cmp")
-
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require("luasnip").expand(args.body)
-                end,
-            },
-            mapping = cmp.mapping.preset.insert({
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<Esc>"] = cmp.mapping.abort(),
-                ["<CR>"] = cmp.mapping.confirm({
-                    select = true,
-                }),
-            }),
-            sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "luasnip" },
-            }, {
-                { name = "buffer" },
-                { name = "path" },
-            }),
-        })
-    end,
+    -- Create a bound config function to load CMP config
+    config = require('rvxlab.util').bind(require, 'rvxlab.config.cmp')
 }
