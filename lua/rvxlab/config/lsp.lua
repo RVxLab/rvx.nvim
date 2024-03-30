@@ -111,14 +111,3 @@ lsp.lua_ls.setup({
         },
     },
 })
-
--- Enable LSP Lines to get some nicer diagnostics
-require("lsp_lines").setup()
-
--- Disable vim diagnostics since lsp_lines takes care of this now
-vim.diagnostic.config({
-    virtual_text = false,
-    float = {
-        source = true,
-    },
-})

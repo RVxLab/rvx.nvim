@@ -12,7 +12,6 @@ return {
             "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "folke/neodev.nvim",
-            "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         },
         config = require("rvxlab.util").bind(require, "rvxlab.config.lsp"),
         init = function()
