@@ -24,4 +24,11 @@ return {
             use_default_keymaps = false,
         },
     },
+    {
+        "tpope/vim-projectionist",
+        dependencies = {
+            "tpope/vim-dispatch",
+        },
+        config = require("rvxlab.util").bound_config("rvxlab.config.projectionist"),
+    },
 }

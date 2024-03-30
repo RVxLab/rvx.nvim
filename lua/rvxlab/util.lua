@@ -10,4 +10,8 @@ function M.bind(fn, ...)
     end
 end
 
+function M.bound_config(config_path)
+    return M.bind(require, config_path)
+end
+
 return M
