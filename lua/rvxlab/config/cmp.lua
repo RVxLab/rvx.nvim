@@ -17,7 +17,7 @@ cmp.setup({
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<Esc>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({
-            select = true,
+            select = false,
         }),
     }),
     sources = cmp.config.sources({
