@@ -11,3 +11,10 @@ snippet invoke "Invoke method"
         ${0}
     }
 
+snippet pest "Pest test"
+    it('${1}', function (): void {
+        ${0}
+    });
+
+snippet pesttodo "Pest test marked as todo"
+    it('${1}')->todo();
