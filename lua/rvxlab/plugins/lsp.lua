@@ -13,7 +13,7 @@ return {
             "hrsh7th/cmp-nvim-lsp",
             "folke/neodev.nvim",
         },
-        config = require("rvxlab.util").bind(require, "rvxlab.config.lsp"),
+        config = require("rvxlab.util").bound_config("rvxlab.config.lsp"),
         init = function()
             local telescope = require("telescope.builtin")
 

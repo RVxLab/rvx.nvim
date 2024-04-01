@@ -35,8 +35,8 @@ local lsp = require("lspconfig")
 
 -- PHP
 lsp.intelephense.setup({
-    on_attach,
-    capabilities,
+    on_attach = on_attach,
+    capabilities = capabilities,
 })
 
 -- JavaScript/TypeScript
@@ -62,23 +62,25 @@ lsp.tsserver.setup({
         "vue",
     },
     on_attach,
-    capabilities,
+    capabilities = capabilities,
 })
 
 -- Vue
 lsp.volar.setup({
-    on_attach,
-    capabilities,
+    on_attach = on_attach,
+    capabilities = capabilities,
 })
 
 -- Rust
 lsp.rust_analyzer.setup({
-    on_attach,
-    capabilities,
+    on_attach = on_attach,
+    capabilities = capabilities,
 })
 
 -- Lua
 lsp.lua_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
     on_init = function(client)
         local path = client.workspace_folders[1].name
         if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
