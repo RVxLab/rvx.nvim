@@ -32,4 +32,35 @@ vim.g.projectionist_heuristics = {
             type = "migration",
         },
     },
+    -- TypeScript
+    ["tsconfig.json"] = {
+        ["*.test.ts"] = {
+            type = "test",
+            alternate = {
+                "{}.ts",
+                "{}.tsx",
+            },
+        },
+        ["*.test.tsx"] = {
+            type = "test",
+            alternate = {
+                "{}.ts",
+                "{}.tsx",
+            },
+        },
+        ["*.ts"] = {
+            type = "source",
+            alternate = {
+                "{}.test.ts",
+                "{}.test.tsx",
+            },
+        },
+        ["*.tsx"] = {
+            type = "source",
+            alternate = {
+                "{}.test.ts",
+                "{}.test.tsx",
+            },
+        },
+    },
 }
