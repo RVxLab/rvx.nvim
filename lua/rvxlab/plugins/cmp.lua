@@ -7,6 +7,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lsp-signature-help",
         { "L3MON4D3/LuaSnip", version = "^2.0" },
+        "saadparwaiz1/cmp_luasnip",
         "onsails/lspkind.nvim",
     },
     -- Create a bound config function to load CMP config
