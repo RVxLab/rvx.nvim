@@ -1,115 +1,140 @@
--- Ensure Neodev is set up first
+-- Ensure Neodev is set up before LSPConfig
 require("neodev").setup({})
 
 -- Initialize Mason and LSP Config
 require("mason").setup()
-
--- Set up Mason's LSP integration
 local mason_lsp = require("mason-lspconfig")
 mason_lsp.setup({ automatic_installation = true })
 
-local cmp = require("cmp")
+local function setup_remaps(buffer)
+    local telescope = require("telescope.builtin")
 
--- Load the default capabilities for CMP and merge the built-in LSP capabilities in
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local map = function(keymap, func, opts)
+        opts = opts or {}
+        opts.buffer = buffer
 
--- The on_attach function will be used to attach to whichever buffer we're working on
-local function on_attach(client, buffer)
+        if opts.desc then
+            opts.desc = "LSP: " .. opts.desc
+        end
+
+        vim.keymap.set('n', keymap, func, opts)
+    end
+
+    map("<leader>d", vim.diagnostic.open_float, {
+        desc = "Open [D]iagnostic window",
+    })
+
+    map("<leader>ga", vim.lsp.buf.code_action, {
+        desc = "Code [A]ction",
+    })
+
+    map("[d", vim.diagnostic.goto_prev, {
+        desc = "Go to previous error",
+    })
+
+    map("]d", vim.diagnostic.goto_next, {
+        desc = "Go to next error",
+    })
+
+    map("<leader>gr", telescope.lsp_references, {
+        desc = "Find [r]eferences",
+    })
+
+    map("<leader>gi", telescope.lsp_implementations, {
+        desc = "Find [i]mplementations",
+    })
+
+    map("<leader>gd", vim.lsp.buf.definition, {
+        desc = "Go to [d]efinition",
+    })
+
+    map("<leader>rn", vim.lsp.buf.rename, {
+        desc = "[R]e[n]ame symbol",
+    })
+end
+
+local function default_on_attach(client, buffer)
     -- Enable inlay hints if the current language server supports it
     if client.server_capabilities.inlayHintProvider then
         vim.lsp.inlay_hint.enable(buffer, true)
     end
 
-    vim.keymap.set({ "n", "i" }, "<C-k>", function()
-        -- Close any nvim-cmp window that could be open
-        cmp.abort()
-        vim.lsp.buf.hover()
-    end, {
-        buffer = buffer,
-        desc = "Show information of whatever is being hovered over",
-    })
+    setup_remaps(buffer)
 end
 
--- Set up actual LSP clients
-local lsp = require("lspconfig")
+-- Server configs
+local servers = {
+    -- PHP
+    intelephense = {},
 
--- PHP
-lsp.intelephense.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
-
--- JavaScript/TypeScript
-lsp.tsserver.setup({
-    plugins = {
-        {
-            name = "@vue/typescript-plugin",
-            location = nil, -- Installed in node_modules, value here doesn't matter
-            languages = {
-                "javascript",
-                "typescript",
-                "vue",
-            },
-        },
-    },
-    filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "vue",
-    },
-    on_attach,
-    capabilities = capabilities,
-})
-
--- Vue
-lsp.volar.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
-
--- Rust
-lsp.rust_analyzer.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-})
-
--- Lua
-lsp.lua_ls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    on_init = function(client)
-        local path = client.workspace_folders[1].name
-        if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-            return
-        end
-
-        client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-            runtime = {
-                -- Tell the language server which version of Lua you're using
-                -- (most likely LuaJIT in the case of Neovim)
-                version = "LuaJIT",
-            },
-            -- Make the server aware of Neovim runtime files
-            workspace = {
-                checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME,
+    -- TypeScript
+    tsserver = {
+        plugins = {
+            {
+                name = "@vue/typescript-plugin",
+                location = nil, -- Installed in node_modules, value here doesn't matter
+                languages = {
+                    "javascript",
+                    "typescript",
+                    "vue",
                 },
             },
-        })
-    end,
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
-            hint = {
-                enable = true,
+        },
+        filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+            "vue",
+        },
+    },
+    volar = {},
+
+    -- Rust
+    rust_analyzer = {},
+
+    -- Lua
+    lua_la = {
+        settings = {
+            Lua = {
+                runtime = { version = "LuaJIT" },
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    checkThirdParty = false,
+                    library = {
+                        vim.env.VIMRUNTIME,
+                        "${3rd}/luv/library",
+                        unpack(vim.api.nvim_get_runtime_file("", true)),
+                    },
+                },
+                hint = {
+                    enable = true,
+                },
+                completion = {
+                    callSnippet = "Replace",
+                }
             },
         },
     },
+}
+
+-- Set up the actual servers
+require('mason-lspconfig').setup_handlers({
+    function(server)
+        local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+        local server_config = vim.tbl_deep_extend('keep', servers[server] or {}, {
+            capabilities = capabilities,
+            on_attach = default_on_attach,
+            inlay_hint = {
+                enable = true,
+            },
+        })
+
+        require('lspconfig')[server].setup(server_config)
+    end,
 })

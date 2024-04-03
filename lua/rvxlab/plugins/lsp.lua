@@ -14,41 +14,6 @@ return {
             "folke/neodev.nvim",
         },
         config = require("rvxlab.util").bound_config("rvxlab.config.lsp"),
-        init = function()
-            local telescope = require("telescope.builtin")
-
-            vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
-                desc = "Open [D]iagnostic window",
-            })
-
-            vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, {
-                desc = "Code [A]ction",
-            })
-
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {
-                desc = "Go to previous error",
-            })
-
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {
-                desc = "Go to next error",
-            })
-
-            vim.keymap.set("n", "<leader>gr", telescope.lsp_references, {
-                desc = "Find [r]eferences",
-            })
-
-            vim.keymap.set("n", "<leader>gi", telescope.lsp_implementations, {
-                desc = "Find [i]mplementations",
-            })
-
-            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {
-                desc = "Go to [d]efinition",
-            })
-
-            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
-                desc = "[R]e[n]ame symbol",
-            })
-        end,
     },
     {
         "nvimtools/none-ls.nvim",
