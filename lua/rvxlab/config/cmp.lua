@@ -30,7 +30,7 @@ cmp.setup({
         format = lspkind.cmp_format(),
     },
     mapping = {
-        ["<S-Space>"] = cmp.mapping.complete(),
+        ["<C-Space>"] = cmp.mapping.complete(),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
