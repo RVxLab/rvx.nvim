@@ -64,11 +64,15 @@ return {
         end,
     },
     {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
+        "stevearc/oil.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = require("rvxlab.util").bind(require, "rvxlab.config.nvim-tree"),
+        opts = {},
+        init = function()
+            local oil = require("oil")
+            vim.keymap.set("n", "-", oil.open, {
+                desc = "Open Oil",
+            })
+        end,
     },
     {
         "echasnovski/mini.starter",
