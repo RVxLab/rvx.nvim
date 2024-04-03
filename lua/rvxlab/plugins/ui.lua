@@ -148,6 +148,11 @@ return {
                 desc = "Quickfix List (Trouble)",
             },
         },
+        opts = {},
+        init = function()
+            require("which-key").register({
+                ["<leader>x"] = { name = "Trouble", _ = "which_key_ignore" },
+            })
+        end,
     },
-    opts = {},
 }
