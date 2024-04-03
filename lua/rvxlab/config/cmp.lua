@@ -26,6 +26,9 @@ cmp.setup({
             luasnip.expand(args.body)
         end,
     },
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
     formatting = {
         format = lspkind.cmp_format(),
     },
