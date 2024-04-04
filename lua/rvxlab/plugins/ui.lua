@@ -32,38 +32,6 @@ return {
         config = require("rvxlab.util").bound_config("rvxlab.config.lualine"),
     },
     {
-        "akinsho/bufferline.nvim",
-        opts = {
-            options = {
-                show_close_icon = false,
-                tab_size = 0,
-                max_name_length = 31,
-                separator_style = "slant",
-                modified_icon = "",
-                custom_areas = {
-                    left = function()
-                        return {
-                            { text = "  ", fg = "#00B4FF" },
-                        }
-                    end,
-                },
-            },
-        },
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-            "catppuccin",
-        },
-        init = function()
-            vim.keymap.set("n", "<", vim.cmd.bprevious, {
-                desc = "Select the previous buffer",
-            })
-
-            vim.keymap.set("n", ">", vim.cmd.bnext, {
-                desc = "Select the next buffer",
-            })
-        end,
-    },
-    {
         "stevearc/oil.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {},
