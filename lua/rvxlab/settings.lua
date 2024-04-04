@@ -39,3 +39,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Enable cursorline so it's easier to see where we are
 vim.wo.cursorline = true
+
+-- Always show the sign column for GitSigns so the editor doesn't just around so much
+vim.o.signcolumn = "yes:1"
