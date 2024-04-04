@@ -31,4 +31,5 @@ return {
         },
         config = require("rvxlab.util").bound_config("rvxlab.config.projectionist"),
     },
+    { "ku1ik/vim-pasta" },
 }
