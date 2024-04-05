@@ -37,7 +37,7 @@ return {
         opts = {},
         init = function()
             local oil = require("oil")
-            vim.keymap.set("n", "-", oil.open, {
+            vim.keymap.set("n", "-", oil.open_float, {
                 desc = "Open Oil",
             })
         end,
