@@ -3,6 +3,7 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 
 require("luasnip.loaders.from_snipmate").lazy_load()
+luasnip.config.setup({})
 
 local has_words_before = function()
     -- Get the line and column of where the cursor is
@@ -23,7 +24,8 @@ cmp.setup({
     preselect = false,
     snippet = {
         expand = function(args)
-            luasnip.expand(args.body)
+            -- Expand snippets using the available LSP if possible
+            luasnip.lsp_expand(args.body)
         end,
     },
     completion = {
