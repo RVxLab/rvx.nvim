@@ -27,7 +27,7 @@ cmp.setup({
         end,
     },
     completion = {
-        completeopt = 'menu,menuone,noinsert'
+        completeopt = "menu,menuone,noinsert",
     },
     formatting = {
         format = lspkind.cmp_format(),
@@ -64,6 +64,7 @@ cmp.setup({
         { name = "path" },
     }),
     experimental = {
-        ghost_text = true,
+        -- Ghost text is a little too distracting
+        -- ghost_text = true,
     },
 })
