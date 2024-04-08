@@ -8,12 +8,12 @@ snippet it "It block"
         ${0}
     })
 
-snippet story "Storybook Story"
-    import type { Meta } from '@storybook/react';
-    import { ${1} } from './${1}';
+snippet storyr "Storybook Story"
+    import type { Meta, StoryObj } from '@storybook/react'
+    import { ${1} } from './${1}'
 
     const meta: Meta<typeof ${1}> = {
-      title: '${2}'
+      title: '${2}',
       component: ${1},
     };
 
