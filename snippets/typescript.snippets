@@ -8,27 +8,19 @@ snippet it "It block"
         ${0}
     })
 
-snippet rfci "React Functional Component with React import"
-    import React from 'react'
+snippet story "Storybook Story"
+    import type { Meta } from '@storybook/react';
+    import { ${1} } from './${1}';
 
-    export const ${1} = () => {
-        return <div>${0}</div>
+    const meta: Meta<typeof ${1}> = {
+      title: '${2}'
+      component: ${1},
+    };
+
+    type Story = StoryObj<typeof ${1}>
+
+    export const ${3}: Story = {
+        ${0}
     }
 
-    ${1}.displayName = '${1}'
-
-snippet rfci "React Functional Component with props and React import"
-    import React, { type FC } from 'react'
-
-    type Props = {}
-
-    export const ${1}: FC<Props> = ({}) => {
-        return <div>${0}</div>
-    }
-
-    ${1}.displayName = '${1}'
-
-snippet docblock "JSDoc block"
-    /**
-     *
-     */
+    export default meta;
