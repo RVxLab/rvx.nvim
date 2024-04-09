@@ -72,9 +72,7 @@ return {
     {
         "folke/noice.nvim",
         event = "VeryLazy",
-        opts = {
-            -- add any options here
-        },
+        opts = {},
         dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
@@ -126,5 +124,9 @@ return {
                 ["<leader>x"] = { name = "Trouble", _ = "which_key_ignore" },
             })
         end,
+    },
+    {
+        "levouh/tint.nvim",
+        opts = {},
     },
 }
