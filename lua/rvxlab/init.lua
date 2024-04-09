@@ -16,7 +16,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("rvxlab.plugins")
+require("lazy").setup("rvxlab.plugins", {
+    checker = {
+        notify = false,
+    },
+    change_detection = {
+        notify = false,
+    },
+})
 
 -- Set up keybinds
 require("rvxlab.keymap")
