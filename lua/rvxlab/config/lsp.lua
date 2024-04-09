@@ -9,7 +9,7 @@ local function setup_remaps(buffer)
             opts.desc = "LSP: " .. opts.desc
         end
 
-        vim.keymap.set('n', keymap, func, opts)
+        vim.keymap.set("n", keymap, func, opts)
     end
 
     map("<leader>d", vim.diagnostic.open_float, {
@@ -88,7 +88,7 @@ local servers = {
     rust_analyzer = {},
 
     -- Lua
-    lua_la = {
+    lua_ls = {
         settings = {
             Lua = {
                 runtime = { version = "LuaJIT" },
@@ -108,7 +108,7 @@ local servers = {
                 },
                 completion = {
                     callSnippet = "Replace",
-                }
+                },
             },
         },
     },
@@ -125,16 +125,16 @@ local servers = {
 
 -- Tools
 local tools = {
-    'eslint_d',
-    'prettierd',
-    'pint',
-    'phpstan',
-    'stylua',
+    "eslint_d",
+    "prettierd",
+    "pint",
+    "phpstan",
+    "stylua",
 }
 
 -- Set up the actual servers
 
-local util = require('rvxlab.util')
+local util = require("rvxlab.util")
 
 -- Ensure Neodev is set up before LSPConfig
 require("neodev").setup({})
@@ -145,11 +145,11 @@ require("mason").setup()
 local mason_lsp = require("mason-lspconfig")
 mason_lsp.setup({ ensure_installed = util.keys(servers) })
 
-require('mason-lspconfig').setup_handlers({
+require("mason-lspconfig").setup_handlers({
     function(server)
-        local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-        local server_config = vim.tbl_deep_extend('keep', servers[server] or {}, {
+        local server_config = vim.tbl_deep_extend("keep", servers[server] or {}, {
             capabilities = capabilities,
             on_attach = default_on_attach,
             inlay_hint = {
@@ -157,8 +157,8 @@ require('mason-lspconfig').setup_handlers({
             },
         })
 
-        require('lspconfig')[server].setup(server_config)
+        require("lspconfig")[server].setup(server_config)
     end,
 })
 
-require('mason-tool-installer').setup({ ensure_installed = tools })
+require("mason-tool-installer").setup({ ensure_installed = tools })
