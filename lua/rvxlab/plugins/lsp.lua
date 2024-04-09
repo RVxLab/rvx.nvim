@@ -1,5 +1,5 @@
 -- Everything related to Language Servers
-local util = require('rvxlab.util')
+local util = require("rvxlab.util")
 
 return {
     {
@@ -38,7 +38,7 @@ return {
                             buffer = buffer,
                             callback = util.bind(vim.lsp.buf.format, {
                                 async = false,
-                            })
+                            }),
                         })
                     end
                 end,
@@ -52,7 +52,9 @@ return {
 
                     -- TS/JS
                     none_ls.builtins.formatting.prettierd,
-                    require("none-ls.diagnostics.eslint_d"),
+                    require("none-ls.diagnostics.eslint_d").with({
+                        method = none_ls.methods.DIAGNOSTICS_ON_SAVE,
+                    }),
                 },
             }
         end,
