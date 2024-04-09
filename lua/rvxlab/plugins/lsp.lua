@@ -1,7 +1,5 @@
 -- Everything related to Language Servers
-
--- AutoCMD groups
-local formatting_group = vim.api.nvim_create_augroup("LspFormatting", {})
+local util = require('rvxlab.util')
 
 return {
     {
@@ -12,8 +10,9 @@ return {
             "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "folke/neodev.nvim",
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
         },
-        config = require("rvxlab.util").bound_config("rvxlab.config.lsp"),
+        config = util.bound_config("rvxlab.config.lsp"),
     },
     {
         "nvimtools/none-ls.nvim",
@@ -22,6 +21,7 @@ return {
             "nvim-lua/plenary.nvim",
         },
         opts = function()
+            local formatting_group = vim.api.nvim_create_augroup("NoneLsFormatting", {})
             local none_ls = require("null-ls")
 
             return {
@@ -36,11 +36,9 @@ return {
                         vim.api.nvim_create_autocmd("BufWritePre", {
                             group = formatting_group,
                             buffer = buffer,
-                            callback = function()
-                                vim.lsp.buf.format({
-                                    async = false,
-                                })
-                            end,
+                            callback = util.bind(vim.lsp.buf.format, {
+                                async = false,
+                            })
                         })
                     end
                 end,

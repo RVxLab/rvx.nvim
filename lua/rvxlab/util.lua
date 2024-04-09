@@ -23,4 +23,16 @@ function M.invoke(fn, ...)
     return fn(...)
 end
 
+---Return all keys of the table and return then
+---@param table table
+function M.keys(table)
+    local keys = {}
+
+    for k, _v in pairs(table) do
+        keys[#table + 1] = k
+    end
+
+    return keys
+end
+
 return M

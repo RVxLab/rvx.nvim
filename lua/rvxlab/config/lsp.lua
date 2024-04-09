@@ -1,11 +1,3 @@
--- Ensure Neodev is set up before LSPConfig
-require("neodev").setup({})
-
--- Initialize Mason and LSP Config
-require("mason").setup()
-local mason_lsp = require("mason-lspconfig")
-mason_lsp.setup({ automatic_installation = true })
-
 local function setup_remaps(buffer)
     local telescope = require("telescope.builtin")
 
@@ -120,9 +112,39 @@ local servers = {
             },
         },
     },
+
+    -- Bash
+    bashls = {},
+
+    -- Yaml
+    yamlls = {},
+
+    -- JSON
+    jsonls = {},
+}
+
+-- Tools
+local tools = {
+    'eslint_d',
+    'prettierd',
+    'pint',
+    'phpstan',
+    'stylua',
 }
 
 -- Set up the actual servers
+
+local util = require('rvxlab.util')
+
+-- Ensure Neodev is set up before LSPConfig
+require("neodev").setup({})
+
+-- Initialize Mason and LSP Config
+require("mason").setup()
+
+local mason_lsp = require("mason-lspconfig")
+mason_lsp.setup({ ensure_installed = util.keys(servers) })
+
 require('mason-lspconfig').setup_handlers({
     function(server)
         local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -138,3 +160,5 @@ require('mason-lspconfig').setup_handlers({
         require('lspconfig')[server].setup(server_config)
     end,
 })
+
+require('mason-tool-installer').setup({ ensure_installed = tools })
