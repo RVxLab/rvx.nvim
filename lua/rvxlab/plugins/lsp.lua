@@ -25,7 +25,7 @@ return {
             local none_ls = require("null-ls")
 
             return {
-                debug = true,
+                -- debug = true,
                 on_attach = function(client, buffer)
                     if client.supports_method("textDocument/formatting") then
                         vim.api.nvim_clear_autocmds({
