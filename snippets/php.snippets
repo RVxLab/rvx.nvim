@@ -23,3 +23,22 @@ snippet /** "PHP DocBlock"
     /**
      * ${0}
      */
+
+snippet laraveldata "Laravel Data class"
+    <?php
+
+    declare(strict_types=1);
+
+    namespace ${1};
+
+    use Illuminate\Console\View\Components\Choice;
+    use Spatie\LaravelData\{Attributes, Data, Mappers};
+
+    #[Attributes\MapName(Mappers\SnakeCaseMapper::class)]
+    class ${2} extends Data
+    {
+        public function __construct(
+            ${0}
+        ) {
+        }
+    }
