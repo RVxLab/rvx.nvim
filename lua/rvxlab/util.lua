@@ -35,4 +35,13 @@ function M.keys(table)
     return keys
 end
 
+function M.n_keymap(mapping, action, description, opts)
+    opts = vim.tbl_extend("keep", opts or {}, {
+        desc = description,
+        silent = true,
+    })
+
+    vim.keymap.set("n", mapping, action, opts)
+end
+
 return M
