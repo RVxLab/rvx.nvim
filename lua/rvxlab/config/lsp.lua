@@ -1,3 +1,5 @@
+local util = require("rvxlab.util")
+
 local function setup_remaps(buffer)
     local telescope = require("telescope.builtin")
 
@@ -86,40 +88,42 @@ local servers = {
     },
 
     -- TypeScript
-    tsserver = {
-        plugins = {
-            {
-                name = "@vue/typescript-plugin",
-                location = nil, -- Installed in node_modules, value here doesn't matter
-                languages = {
-                    "javascript",
-                    "typescript",
-                    "vue",
+    tsserver = function()
+        return {
+            filetypes = {
+                "javascript",
+                "javascriptreact",
+                "javascript.jsx",
+                "typescript",
+                "typescriptreact",
+                "typescript.tsx",
+                "vue",
+            },
+            init_options = {
+                plugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = util.invoke(function()
+                            local registry = require("mason-registry")
+                            local plugin_path = registry.get_package("vue-language-server"):get_install_path()
+                            return plugin_path .. "/node_modules/@vue/language-server"
+                        end),
+                        languages = { "vue" },
+                    },
+                },
+                preferences = {
+                    includeInlayParameterNameHints = "all",
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                    importModuleSpecifierPreference = "non-relative",
                 },
             },
-        },
-        filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-            "vue",
-        },
-        init_options = {
-            preferences = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-                importModuleSpecifierPreference = "non-relative",
-            },
-        },
-    },
+        }
+    end,
     volar = {},
 
     -- Rust
@@ -186,7 +190,13 @@ mason_lsp.setup_handlers({
     function(server)
         local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-        local server_config = vim.tbl_deep_extend("keep", servers[server] or {}, {
+        local extra_config = servers[server] or {}
+
+        if type(extra_config) == "function" then
+            extra_config = extra_config()
+        end
+
+        local server_config = vim.tbl_deep_extend("keep", extra_config, {
             capabilities = capabilities,
             on_attach = default_on_attach,
             inlay_hint = {
