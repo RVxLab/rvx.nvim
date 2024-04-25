@@ -14,67 +14,67 @@ return {
         },
         config = util.bound_config("rvxlab.config.lsp"),
     },
-    {
-        "nvimtools/none-ls.nvim",
-        dependencies = {
-            "nvimtools/none-ls-extras.nvim",
-            "nvim-lua/plenary.nvim",
-        },
-        opts = function()
-            local formatting_group = vim.api.nvim_create_augroup("NoneLsFormatting", {})
-            local none_ls = require("null-ls")
+    -- {
+    --     "nvimtools/none-ls.nvim",
+    --     dependencies = {
+    --         "nvimtools/none-ls-extras.nvim",
+    --         "nvim-lua/plenary.nvim",
+    --     },
+    --     opts = function()
+    --         local formatting_group = vim.api.nvim_create_augroup("NoneLsFormatting", {})
+    --         local none_ls = require("null-ls")
 
-            return {
-                -- debug = true,
-                on_attach = function(client, buffer)
-                    if client.supports_method("textDocument/formatting") then
-                        vim.api.nvim_clear_autocmds({
-                            group = formatting_group,
-                            buffer = buffer,
-                        })
+    --         return {
+    --             -- debug = true,
+    --             on_attach = function(client, buffer)
+    --                 if client.supports_method("textDocument/formatting") then
+    --                     vim.api.nvim_clear_autocmds({
+    --                         group = formatting_group,
+    --                         buffer = buffer,
+    --                     })
 
-                        vim.api.nvim_create_autocmd("BufWritePre", {
-                            group = formatting_group,
-                            buffer = buffer,
-                            callback = util.bind(vim.lsp.buf.format, {
-                                async = false,
-                            }),
-                        })
-                    end
-                end,
-                sources = {
-                    -- Lua
-                    none_ls.builtins.formatting.stylua,
+    --                     vim.api.nvim_create_autocmd("BufWritePre", {
+    --                         group = formatting_group,
+    --                         buffer = buffer,
+    --                         callback = util.bind(vim.lsp.buf.format, {
+    --                             async = false,
+    --                         }),
+    --                     })
+    --                 end
+    --             end,
+    --             sources = {
+    --                 -- Lua
+    --                 none_ls.builtins.formatting.stylua,
 
-                    -- PHP
-                    none_ls.builtins.diagnostics.phpstan.with({
-                        method = none_ls.methods.DIAGNOSTICS_ON_SAVE,
-                        extra_args = { "--memory-limit=-1" },
-                    }),
-                    none_ls.builtins.formatting.pint.with({
-                        extra_args = function(params)
-                            local config_file = params.root .. "/pint.json"
+    --                 -- PHP
+    --                 none_ls.builtins.diagnostics.phpstan.with({
+    --                     method = none_ls.methods.DIAGNOSTICS_ON_SAVE,
+    --                     extra_args = { "--memory-limit=-1" },
+    --                 }),
+    --                 none_ls.builtins.formatting.pint.with({
+    --                     extra_args = function(params)
+    --                         local config_file = params.root .. "/pint.json"
 
-                            return {
-                                string.format("--config=%s", config_file),
-                            }
-                        end,
-                    }),
+    --                         return {
+    --                             string.format("--config=%s", config_file),
+    --                         }
+    --                     end,
+    --                 }),
 
-                    -- TS/JS
-                    none_ls.builtins.formatting.prettierd,
-                    require("none-ls.diagnostics.eslint_d").with({
-                        method = none_ls.methods.DIAGNOSTICS_ON_SAVE,
-                    }),
-                },
-            }
-        end,
-        init = function()
-            vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {
-                desc = "[F]ormat the current buffer",
-            })
-        end,
-    },
+    --                 -- TS/JS
+    --                 none_ls.builtins.formatting.prettierd,
+    --                 require("none-ls.diagnostics.eslint_d").with({
+    --                     method = none_ls.methods.DIAGNOSTICS_ON_SAVE,
+    --                 }),
+    --             },
+    --         }
+    --     end,
+    --     init = function()
+    --         vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {
+    --             desc = "[F]ormat the current buffer",
+    --         })
+    --     end,
+    -- },
     -- Disabled due to linting conflicts
     -- {
     --     "pmizio/typescript-tools.nvim",

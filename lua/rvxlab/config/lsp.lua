@@ -172,9 +172,8 @@ local servers = {
 local tools = {
     "eslint_d",
     "prettierd",
-    "pint",
-    "phpstan",
     "stylua",
+    "shellcheck",
 }
 
 -- Set up the actual servers
