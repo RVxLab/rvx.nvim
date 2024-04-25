@@ -45,6 +45,12 @@ local function setup_remaps(buffer)
     map("<leader>rn", vim.lsp.buf.rename, {
         desc = "[R]e[n]ame symbol",
     })
+
+    map("<leader>ht", function()
+        vim.lsp.inlay_hint.enable(buffer, not vim.lsp.inlay_hint.is_enabled(buffer))
+    end, {
+        desc = "[H]ints [T]oggle",
+    })
 end
 
 local function default_on_attach(client, buffer)
