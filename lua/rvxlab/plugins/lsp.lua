@@ -49,11 +49,9 @@ return {
                     -- PHP
                     none_ls.builtins.diagnostics.phpstan.with({
                         method = none_ls.methods.DIAGNOSTICS_ON_SAVE,
-                        to_temp_file = false,
                         extra_args = { "--memory-limit=-1" },
                     }),
                     none_ls.builtins.formatting.pint.with({
-                        to_temp_file = false,
                         extra_args = function(params)
                             local config_file = params.root .. "/pint.json"
 
