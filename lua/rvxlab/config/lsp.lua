@@ -163,6 +163,9 @@ local servers = {
 
     -- JSON
     jsonls = {},
+
+    -- Tailwind
+    tailwindcss = {},
 }
 
 -- Tools
