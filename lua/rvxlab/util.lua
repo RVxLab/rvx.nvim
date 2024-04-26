@@ -11,6 +11,16 @@ function M.bind(fn, ...)
     end
 end
 
+---Bind a function with default arguments for later use, calling with pcall
+---See also [Currying](https://javascript.info/currying-partials)
+function M.pbind(fn, ...)
+    local args = { ... }
+
+    return function()
+        return pcall(fn, unpack(args))
+    end
+end
+
 ---Bind require to load a config file
 function M.bound_config(config_path)
     return M.bind(require, config_path)

@@ -180,12 +180,10 @@ local tools = {
     "prettierd",
     "stylua",
     "shellcheck",
+    "luacheck",
 }
 
 -- Set up the actual servers
-
-local util = require("rvxlab.util")
-
 -- Ensure Neodev is set up before LSPConfig
 require("neodev").setup({})
 
