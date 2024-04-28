@@ -38,7 +38,7 @@ local function setup_remaps(buffer)
         desc = "Find [i]mplementations",
     })
 
-    map("<leader>gd", vim.lsp.buf.definition, {
+    map("<leader>gd", telescope.lsp_definitions, {
         desc = "Go to [d]efinition",
     })
 

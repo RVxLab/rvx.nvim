@@ -75,3 +75,4 @@ vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, {
 -- Load the extensions at the end
 telescope.load_extension("fzf")
 telescope.load_extension("live_grep_args")
+telescope.load_extension("ui-select")

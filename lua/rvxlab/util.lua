@@ -22,8 +22,13 @@ function M.pbind(fn, ...)
 end
 
 ---Bind require to load a config file
-function M.bound_config(config_path)
-    return M.bind(require, config_path)
+---@param config_path_or_name string
+function M.bound_config(config_path_or_name)
+    if config_path_or_name:find(".", 1, true) == nil then
+        config_path_or_name = string.format("rvxlab.config.%s", config_path_or_name)
+    end
+
+    return M.bind(require, config_path_or_name)
 end
 
 ---Immediately invoke the function with the given arguments, if any
@@ -35,6 +40,7 @@ end
 
 ---Return all keys of the table and return then
 ---@param table table
+---@return table
 function M.keys(table)
     local keys = {}
 
@@ -45,6 +51,11 @@ function M.keys(table)
     return keys
 end
 
+---Shortcut for a normal mode keymapping
+---@param mapping string
+---@param action function
+---@param description string|nil
+---@param opts table|nil
 function M.n_keymap(mapping, action, description, opts)
     opts = vim.tbl_extend("keep", opts or {}, {
         desc = description,
@@ -52,6 +63,13 @@ function M.n_keymap(mapping, action, description, opts)
     })
 
     vim.keymap.set("n", mapping, action, opts)
+end
+
+---Check if a string starts with a given substring
+---@param haystack string
+---@param needle string
+function M.string_starts_with(haystack, needle)
+    return haystack:sub(1, #needle) == needle
 end
 
 return M
