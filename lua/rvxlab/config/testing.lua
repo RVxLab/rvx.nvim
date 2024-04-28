@@ -1,13 +1,13 @@
-local neotest = require('neotest')
-local util = require('rvxlab.util')
+local neotest = require("neotest")
+local util = require("rvxlab.util")
 
 neotest.setup({
     adapters = {
         -- PHP
-        require('neotest-pest'),
+        require("neotest-pest"),
 
         -- JS/TS (TODO)
-        require('neotest-jest')({}),
+        require("neotest-jest")({}),
     },
 })
 
@@ -16,14 +16,9 @@ require("which-key").register({
     ["<leader>t"] = { name = "[T]ests", _ = "which_key_ignore" },
 })
 
-vim.keymap.set("n", "<leader>tn", neotest.run.run, {
-    desc = "Test [N]earest",
-})
+util.n_keymap("<leader>tn", neotest.run.run, "Test [N]earest")
+util.n_keymap("<leader>tf", util.bind(neotest.run.run, vim.fn.expand("%")), "Test [F]ile")
+util.n_keymap("<leader>tl", neotest.run.run_last, "Test [L]ast Run Test")
 
-vim.keymap.set("n", "<leader>tf", util.bind(neotest.run.run, vim.fn.expand("%")), {
-    desc = "Test [F]ile",
-})
-
-vim.keymap.set("n", "<leader>to", neotest.output.open, {
-    desc = "[O]pen output panel"
-})
+util.n_keymap("<leader>To", neotest.output_panel.toggle, "Toggle [O]utput Panel")
+util.n_keymap("<leader>Ts", neotest.summary.toggle, "Toggle [S]ummary Panel")
