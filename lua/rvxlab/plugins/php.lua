@@ -26,6 +26,9 @@ return {
     {
         "phpactor/phpactor",
         build = "composer install --no-dev -o",
+        cond = function()
+            return vim.fn.executable("composer") == 1
+        end,
         ft = "php",
         keys = {
             { "<leader>pm", ":PhpactorContextMenu<CR>" },
