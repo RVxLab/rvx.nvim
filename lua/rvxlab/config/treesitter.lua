@@ -1,3 +1,5 @@
+local util = require("rvxlab.util")
+
 require("nvim-treesitter.configs").setup({
     ensure_installed = {
         "lua",
@@ -27,3 +29,7 @@ context.setup({
     max_lines = 5,
     multiline_threshold = 3,
 })
+
+util.n_keymap("[c", function()
+    context.go_to_context(vim.v.count1)
+end, "Go to parent [c]ontext")
