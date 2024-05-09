@@ -20,4 +20,10 @@ require("nvim-treesitter.configs").setup({
     },
 })
 
-require("treesitter-context").setup({})
+local context = require("treesitter-context")
+
+context.setup({
+    line_numbers = false,
+    max_lines = 5,
+    multiline_threshold = 3,
+})
