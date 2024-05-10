@@ -8,6 +8,9 @@ neotest.setup({
 
         -- JS/TS (TODO)
         require("neotest-jest")({}),
+
+        -- Rust
+        require("neotest-rust"),
     },
 })
 
@@ -17,7 +20,9 @@ require("which-key").register({
 })
 
 util.n_keymap("<leader>tn", neotest.run.run, "Test [N]earest")
-util.n_keymap("<leader>tf", util.bind(neotest.run.run, vim.fn.expand("%")), "Test [F]ile")
+util.n_keymap("<keader>tf", function()
+    neotest.run.run(vim.fn.expand("%"))
+end, "Test [F]ile")
 util.n_keymap("<leader>tl", neotest.run.run_last, "Test [L]ast Run Test")
 
 util.n_keymap("<leader>To", neotest.output_panel.toggle, "Toggle [O]utput Panel")
