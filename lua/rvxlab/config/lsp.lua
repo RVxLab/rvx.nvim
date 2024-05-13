@@ -1,66 +1,5 @@
 local util = require("rvxlab.util")
-
-local function setup_remaps(buffer)
-    local telescope = require("telescope.builtin")
-
-    local map = function(keymap, func, opts)
-        opts = opts or {}
-        opts.buffer = buffer
-
-        if opts.desc then
-            opts.desc = "LSP: " .. opts.desc
-        end
-
-        vim.keymap.set("n", keymap, func, opts)
-    end
-
-    map("<leader>d", vim.diagnostic.open_float, {
-        desc = "Open [D]iagnostic window",
-    })
-
-    map("<leader>ga", vim.lsp.buf.code_action, {
-        desc = "Code [A]ction",
-    })
-
-    map("[d", vim.diagnostic.goto_prev, {
-        desc = "Go to previous error",
-    })
-
-    map("]d", vim.diagnostic.goto_next, {
-        desc = "Go to next error",
-    })
-
-    map("<leader>gr", telescope.lsp_references, {
-        desc = "Find [r]eferences",
-    })
-
-    map("<leader>gi", telescope.lsp_implementations, {
-        desc = "Find [i]mplementations",
-    })
-
-    map("<leader>gd", telescope.lsp_definitions, {
-        desc = "Go to [d]efinition",
-    })
-
-    map("<leader>rn", vim.lsp.buf.rename, {
-        desc = "[R]e[n]ame symbol",
-    })
-
-    map("<leader>ht", function()
-        vim.lsp.inlay_hint.enable(buffer, not vim.lsp.inlay_hint.is_enabled(buffer))
-    end, {
-        desc = "[H]ints [T]oggle",
-    })
-end
-
-local function default_on_attach(client, buffer)
-    -- Enable inlay hints if the current language server supports it
-    if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(buffer, true)
-    end
-
-    setup_remaps(buffer)
-end
+local lsp = require("rvxlab.lsp")
 
 -- Server configs
 local servers = {
@@ -132,9 +71,6 @@ local servers = {
     end,
     volar = {},
 
-    -- Rust
-    rust_analyzer = {},
-
     -- Lua
     lua_ls = {
         settings = {
@@ -204,7 +140,7 @@ mason_lsp.setup_handlers({
 
         local server_config = vim.tbl_deep_extend("keep", extra_config, {
             capabilities = capabilities,
-            on_attach = default_on_attach,
+            on_attach = lsp.on_attach,
             inlay_hint = {
                 enable = true,
             },
@@ -212,6 +148,8 @@ mason_lsp.setup_handlers({
 
         require("lspconfig")[server].setup(server_config)
     end,
+    -- Don't initialize rust-analyzer if installed, rustaceanvim takes care of that
+    rust_analyzer = util.noop,
 })
 
 require("mason-tool-installer").setup({ ensure_installed = tools })
