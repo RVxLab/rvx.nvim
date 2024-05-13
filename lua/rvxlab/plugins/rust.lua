@@ -7,8 +7,20 @@ return {
             -- Load CMP first so we can load autocompletion
             "hrsh7th/nvim-cmp",
         },
-        event = { "BufRead Cargo.toml" },
-        opts = {},
+        ft = {
+            "rs",
+            "toml",
+        },
+        opts = {
+            completion = {
+                cmp = {
+                    enabled = true,
+                },
+                crates = {
+                    enabled = true,
+                },
+            },
+        },
     },
     {
         "mrcjkb/rustaceanvim",
