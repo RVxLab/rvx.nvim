@@ -20,7 +20,7 @@ require("which-key").register({
 })
 
 util.n_keymap("<leader>tn", neotest.run.run, "Test [N]earest")
-util.n_keymap("<keader>tf", function()
+util.n_keymap("<leader>tf", function()
     neotest.run.run(vim.fn.expand("%"))
 end, "Test [F]ile")
 util.n_keymap("<leader>tl", neotest.run.run_last, "Test [L]ast Run Test")
