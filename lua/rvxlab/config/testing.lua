@@ -10,7 +10,7 @@ neotest.setup({
         require("neotest-jest")({}),
 
         -- Rust
-        require("neotest-rust"),
+        require("rustaceanvim.neotest"),
     },
 })
 

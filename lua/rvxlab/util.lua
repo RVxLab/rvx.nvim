@@ -72,4 +72,9 @@ function M.string_starts_with(haystack, needle)
     return haystack:sub(1, #needle) == needle
 end
 
+---Do nothing
+function M.noop()
+    -- 🦗
+end
+
 return M
