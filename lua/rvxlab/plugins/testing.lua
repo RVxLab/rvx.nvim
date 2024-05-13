@@ -10,7 +10,7 @@ return {
             -- Adapters
             "V13Axel/neotest-pest", -- PestPHP
             "nvim-neotest/neotest-jest", -- Jest
-            "rouge8/neotest-rust",
+            "mrcjkb/rustaceanvim",
         },
         config = require("rvxlab.util").bound_config("rvxlab.config.testing"),
     },
