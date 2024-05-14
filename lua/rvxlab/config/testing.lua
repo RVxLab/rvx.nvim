@@ -24,6 +24,7 @@ util.n_keymap("<leader>tf", function()
     neotest.run.run(vim.fn.expand("%"))
 end, "Test [F]ile")
 util.n_keymap("<leader>tl", neotest.run.run_last, "Test [L]ast Run Test")
+util.n_keymap("<leader>td", util.bind(neotest.run.run, { strategy = "dap" }), "[D]ebug nearest test")
 
 util.n_keymap("<leader>To", neotest.output_panel.toggle, "Toggle [O]utput Panel")
 util.n_keymap("<leader>Ts", neotest.summary.toggle, "Toggle [S]ummary Panel")
