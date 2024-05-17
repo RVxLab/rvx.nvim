@@ -1,6 +1,6 @@
 -- Everything related to Git
 
-local bind = require('rvxlab.util').bind
+local bind = require("rvxlab.util").bind
 
 return {
     {
@@ -11,15 +11,15 @@ return {
             yadm = {
                 enable = false, -- I don't use yadm
             },
-            on_attach = function (buffer)
-                local gs = require('gitsigns')
+            on_attach = function(buffer)
+                local gs = require("gitsigns")
 
-                vim.keymap.set('n', '[h', bind(vim.schedule, gs.prev_hunk), {
+                vim.keymap.set("n", "[h", bind(vim.schedule, gs.prev_hunk), {
                     desc = "Previous [H]unk",
                     buffer = buffer,
                 })
 
-                vim.keymap.set('n', ']h', bind(vim.schedule, gs.next_hunk), {
+                vim.keymap.set("n", "]h", bind(vim.schedule, gs.next_hunk), {
                     desc = "Next [H]unk",
                     buffer = buffer,
                 })
