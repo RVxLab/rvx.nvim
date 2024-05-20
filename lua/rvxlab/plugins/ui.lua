@@ -21,6 +21,7 @@ return {
                 ["<leader>L"] = { name = "[L]azy", _ = "which_key_ignore" },
                 ["<leader>g"] = { name = "[G]eneral actions", _ = "which_key_ignore" },
                 ["<leader>Q"] = { name = "[Q]uit buffers", _ = "which_key_ignore" },
+                ["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
             })
         end,
     },

@@ -2,6 +2,7 @@
 return {
     { "tpope/vim-surround" },
     { "tpope/vim-commentary" },
+    { "tpope/vim-eunuch" },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
