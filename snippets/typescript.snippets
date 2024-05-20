@@ -24,3 +24,9 @@ snippet storyr "Storybook Story"
     }
 
     export default meta;
+
+snippet reactchangedebugger "useEffect to check if a value has changed"
+    useEffect(() => {
+        console.log('${1} has changed')
+        console.log(${1})
+    }, [${1}])
