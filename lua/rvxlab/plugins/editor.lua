@@ -1,7 +1,6 @@
 -- Everything related to the editor part
 return {
     { "tpope/vim-surround" },
-    { "tpope/vim-commentary" },
     { "tpope/vim-eunuch" },
     {
         "windwp/nvim-autopairs",
