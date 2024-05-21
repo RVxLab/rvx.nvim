@@ -38,4 +38,9 @@ return {
             vim.g.rooter_patterns = { ".git", "composer.json" }
         end,
     },
+    {
+        "folke/ts-comments.nvim",
+        opts = {},
+        event = "VeryLazy",
+    },
 }
