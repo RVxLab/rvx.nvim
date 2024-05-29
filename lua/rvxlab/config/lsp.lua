@@ -4,7 +4,12 @@ local lsp = require("rvxlab.lsp")
 -- Server configs
 local servers = {
     -- PHP
-    intelephense = {},
+    intelephense = {
+        filetypes = {
+            "php",
+            "blade",
+        },
+    },
     -- Disable most features on PHPActor since Intelephense handles them, otherwise it becomes very conflict-ey
     phpactor = {
         on_attach = function(client)
