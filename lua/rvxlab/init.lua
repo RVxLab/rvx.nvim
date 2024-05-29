@@ -2,6 +2,9 @@
 -- This it so ensure have the leader key set and stuff like that
 require("rvxlab.settings")
 
+-- Add custom filetypes
+require("rvxlab.ft")
+
 -- Initialize Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

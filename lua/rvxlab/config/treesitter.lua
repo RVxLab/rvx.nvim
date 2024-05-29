@@ -1,5 +1,17 @@
 local util = require("rvxlab.util")
 
+-- First we add the Blade parser
+local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+parser_configs.blade = {
+    install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+    },
+    filetype = "blade",
+}
+
+-- Next we load Treesitter
 require("nvim-treesitter.configs").setup({
     ensure_installed = {
         "lua",
@@ -13,6 +25,8 @@ require("nvim-treesitter.configs").setup({
         "json",
         "yaml",
         "php",
+        "blade",
+        "html",
     },
     highlight = {
         enable = true,
@@ -22,6 +36,7 @@ require("nvim-treesitter.configs").setup({
     },
 })
 
+-- Now we initialize any addons
 local context = require("treesitter-context")
 
 context.setup({
