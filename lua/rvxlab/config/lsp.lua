@@ -40,6 +40,9 @@ local servers = {
     -- TypeScript
     tsserver = function()
         return {
+            on_attach = function(_client, buffer)
+                lsp.setup_remaps(buffer)
+            end,
             filetypes = {
                 "javascript",
                 "javascriptreact",

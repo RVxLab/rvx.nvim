@@ -100,4 +100,22 @@ function M.when_macos(fn_on_macos, fn_otherwise)
     return nil
 end
 
+---Create a lazy keybinding for lazy.nvim
+---
+---@param mapping string
+---@param action function
+---@param description string|nil
+---@param opts table|nil
+function M.lazy_key(mapping, action, description, opts)
+    local lazy_mapping = {
+        mapping,
+        action,
+    }
+
+    return vim.tbl_extend("keep", lazy_mapping, opts or {}, {
+        desc = description,
+        silent = true,
+    })
+end
+
 return M
