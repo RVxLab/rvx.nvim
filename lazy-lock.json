@@ -50,7 +50,7 @@
   "tint.nvim": { "branch": "master", "commit": "02bd0527a315a80e4e25bb2dd7b6994fb0daae01" },
   "todo-comments.nvim": { "branch": "main", "commit": "70a93ce66083699571adc361166504b03cc39c2b" },
   "treesj": { "branch": "main", "commit": "f98deb33805485b56a8d44d1a27d16874af00d7f" },
-  "trouble.nvim": { "branch": "dev", "commit": "8a0394ce7c38d961b355160dfc1e4ab77b9a38d7" },
+  "trouble.nvim": { "branch": "main", "commit": "7d512d5fb49dd8aba7577710ffb1c04b3cbbc073" },
   "ts-comments.nvim": { "branch": "main", "commit": "e339090c076871069c00e488b11def49aaf4e413" },
   "vim-dispatch": { "branch": "master", "commit": "4c695bc052cad2ae6b980aebbe48d046466e27ae" },
   "vim-dotenv": { "branch": "master", "commit": "5c51cfcf8d87280d6414e03cd6b253eb70ecb800" },

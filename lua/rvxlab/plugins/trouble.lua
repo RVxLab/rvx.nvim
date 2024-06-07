@@ -2,7 +2,7 @@
 -- I'm not really happy with them
 return {
     "folke/trouble.nvim",
-    branch = "dev",
+    cmd = "Trouble",
     keys = {
         {
             "<leader>xx",
