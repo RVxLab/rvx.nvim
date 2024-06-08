@@ -22,6 +22,9 @@ return {
         lspconfig = {
             options = {
                 on_attach = lsp.on_attach,
+                init_options = {
+                    ['language_server_worse_reflection.inlay_hints.enable'] = true,
+                },
             },
         },
     },
