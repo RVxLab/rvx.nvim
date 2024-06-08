@@ -14,7 +14,7 @@ return {
         utils.lazy_key("<leader>ff", function()
             require("telescope.builtin").find_files()
         end, "[F]ind files"),
-        utils.lazy_key("<leader>ff", function()
+        utils.lazy_key("<leader>fF", function()
             require("telescope.builtin").find_files({
                 prompt_title = "All files",
                 no_ignore = true,
