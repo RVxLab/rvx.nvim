@@ -18,6 +18,9 @@ return {
                     name = "Test [U]I elements",
                 },
             },
+            ["<leader>p"] = { name = "[P]HP" },
+            ["<leader>l"] = { name = "[L]aravel" },
+            ["<leader>f"] = { name = "[F]ind files" },
         })
     end,
 }

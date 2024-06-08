@@ -103,7 +103,7 @@ end
 ---Create a lazy keybinding for lazy.nvim
 ---
 ---@param mapping string
----@param action function
+---@param action function|string
 ---@param description string|nil
 ---@param opts table|nil
 function M.lazy_key(mapping, action, description, opts)

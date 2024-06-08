@@ -1,84 +1,125 @@
--- Everything related to Language Servers
 local util = require("rvxlab.util")
+local lsp = require("rvxlab.lsp")
 
 return {
-    {
-        "neovim/nvim-lspconfig",
-        event = "VeryLazy",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/cmp-nvim-lsp",
-            "folke/neodev.nvim",
-            "WhoIsSethDaniel/mason-tool-installer.nvim",
-        },
-        config = util.bound_config("rvxlab.config.lsp"),
+    "neovim/nvim-lspconfig",
+    event = "VeryLazy",
+    dependencies = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "hrsh7th/cmp-nvim-lsp",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
-    -- {
-    --     "nvimtools/none-ls.nvim",
-    --     dependencies = {
-    --         "nvimtools/none-ls-extras.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --     },
-    --     opts = function()
-    --         local formatting_group = vim.api.nvim_create_augroup("NoneLsFormatting", {})
-    --         local none_ls = require("null-ls")
+    config = function()
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "tsserver",
+                "rust_analyzer",
+                "lua_ls",
+                "volar",
+                "bashls",
+                "yamlls",
+                "jsonls",
+                "tailwindcss",
+                "html",
+            },
+        })
+        require("mason-tool-installer").setup({
+            ensure_installed = {
+                "eslint_d",
+                "prettierd",
+                "stylua",
+                "shellcheck",
+                "luacheck",
+            },
+        })
 
-    --         return {
-    --             -- debug = true,
-    --             on_attach = function(client, buffer)
-    --                 if client.supports_method("textDocument/formatting") then
-    --                     vim.api.nvim_clear_autocmds({
-    --                         group = formatting_group,
-    --                         buffer = buffer,
-    --                     })
+        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-    --                     vim.api.nvim_create_autocmd("BufWritePre", {
-    --                         group = formatting_group,
-    --                         buffer = buffer,
-    --                         callback = util.bind(vim.lsp.buf.format, {
-    --                             async = false,
-    --                         }),
-    --                     })
-    --                 end
-    --             end,
-    --             sources = {
-    --                 -- Lua
-    --                 none_ls.builtins.formatting.stylua,
+        local default_config = {
+            capabilities = capabilities,
+            on_attach = lsp.on_attach,
+            inlay_hint = {
+                enable = true,
+            },
+        }
 
-    --                 -- PHP
-    --                 none_ls.builtins.diagnostics.phpstan.with({
-    --                     method = none_ls.methods.DIAGNOSTICS_ON_SAVE,
-    --                     extra_args = { "--memory-limit=-1" },
-    --                 }),
-    --                 none_ls.builtins.formatting.pint.with({
-    --                     extra_args = function(params)
-    --                         local config_file = params.root .. "/pint.json"
+        local make_config = function(opts)
+            return vim.tbl_deep_extend("force", default_config, opts)
+        end
 
-    --                         return {
-    --                             string.format("--config=%s", config_file),
-    --                         }
-    --                     end,
-    --                 }),
+        local lspconfig = require("lspconfig")
 
-    --                 -- TS/JS
-    --                 none_ls.builtins.formatting.prettierd,
-    --                 require("none-ls.diagnostics.eslint_d").with({
-    --                     method = none_ls.methods.DIAGNOSTICS_ON_SAVE,
-    --                 }),
-    --             },
-    --         }
-    --     end,
-    --     init = function()
-    --         vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {
-    --             desc = "[F]ormat the current buffer",
-    --         })
-    --     end,
-    -- },
-    -- Disabled due to linting conflicts
-    -- {
-    --     "pmizio/typescript-tools.nvim",
-    --     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    --     opts = {},
-    -- },
+        lspconfig.tsserver.setup(make_config({
+            on_attach = function(_client, buffer)
+                lsp.setup_remaps(buffer)
+            end,
+            filetypes = {
+                "javascript",
+                "javascriptreact",
+                "javascript.jsx",
+                "typescript",
+                "typescriptreact",
+                "typescript.tsx",
+                "vue",
+            },
+            inlay_hint = {
+                enable = false,
+            },
+            init_options = {
+                plugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = util.invoke(function()
+                            local registry = require("mason-registry")
+                            local plugin_path = registry.get_package("vue-language-server"):get_install_path()
+                            return plugin_path .. "/node_modules/@vue/language-server"
+                        end),
+                        languages = { "vue" },
+                    },
+                },
+                preferences = {
+                    includeInlayParameterNameHints = "all",
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                    importModuleSpecifierPreference = "non-relative",
+                },
+            },
+        }))
+        lspconfig.volar.setup(make_config({}))
+        lspconfig.lua_ls.setup(make_config({
+            settings = {
+                Lua = {
+                    runtime = { version = "LuaJIT" },
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                    workspace = {
+                        checkThirdParty = false,
+                        library = {
+                            vim.env.VIMRUNTIME,
+                            "${3rd}/luv/library",
+                            unpack(vim.api.nvim_get_runtime_file("", true)),
+                        },
+                    },
+                    hint = {
+                        enable = true,
+                    },
+                    completion = {
+                        callSnippet = "Replace",
+                    },
+                },
+            },
+        }))
+        lspconfig.bashls.setup(make_config({}))
+        lspconfig.yamlls.setup(make_config({}))
+        lspconfig.jsonls.setup(make_config({}))
+        lspconfig.tailwindcss.setup(make_config({}))
+        lspconfig.html.setup(make_config({}))
+    end,
 }
