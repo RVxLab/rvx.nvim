@@ -67,4 +67,18 @@ return {
             }),
         }
     end,
+
+    ---@diagnostic disable-next-line: unused-local
+    config = function(_plugin, opts)
+        local cmp = require("cmp")
+
+        -- Setup CMP like normal
+        cmp.setup(opts)
+
+        -- Setup for dadbod
+        cmp.setup.filetype({ "sql" }, {
+            { name = "vim-dadbod-completion" },
+            { name = "buffer" },
+        })
+    end,
 }
