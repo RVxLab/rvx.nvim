@@ -6,9 +6,6 @@ return {
     build = function()
         require("phpactor.handler.update")()
     end,
-    cond = function()
-        return vim.fn.executable("php") == 1 and vim.fn.executable("composer") == 1
-    end,
     ft = "php",
     keys = {
         utils.lazy_key("<leader>pm", function()
@@ -23,7 +20,7 @@ return {
             options = {
                 on_attach = lsp.on_attach,
                 init_options = {
-                    ['language_server_worse_reflection.inlay_hints.enable'] = true,
+                    ["language_server_worse_reflection.inlay_hints.enable"] = true,
                 },
             },
         },
