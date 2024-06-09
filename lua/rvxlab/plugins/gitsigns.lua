@@ -1,4 +1,4 @@
-local utils = require("rvxlab.util")
+local utils = require("rvxlab.utils")
 
 return {
     "lewis6991/gitsigns.nvim",

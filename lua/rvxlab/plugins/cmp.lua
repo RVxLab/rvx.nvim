@@ -1,4 +1,4 @@
-local invoke = require("rvxlab.util").invoke
+local invoke = require("rvxlab.utils").invoke
 
 return {
     "hrsh7th/nvim-cmp",

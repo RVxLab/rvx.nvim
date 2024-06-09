@@ -1,4 +1,4 @@
-local util = require("rvxlab.util")
+local utils = require("rvxlab.utils")
 
 return {
     "mfussenegger/nvim-lint",
@@ -14,7 +14,7 @@ return {
     init = function()
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
             desc = "Lint the current buffer",
-            callback = util.pbind(require("lint").try_lint),
+            callback = utils.pbind(require("lint").try_lint),
         })
     end,
 }

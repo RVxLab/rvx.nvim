@@ -1,4 +1,4 @@
-local util = require("rvxlab.util")
+local utils = require("rvxlab.utils")
 local lsp = require("rvxlab.lsp")
 
 return {
@@ -71,7 +71,7 @@ return {
                 plugins = {
                     {
                         name = "@vue/typescript-plugin",
-                        location = util.invoke(function()
+                        location = utils.invoke(function()
                             local registry = require("mason-registry")
                             local plugin_path = registry.get_package("vue-language-server"):get_install_path()
                             return plugin_path .. "/node_modules/@vue/language-server"

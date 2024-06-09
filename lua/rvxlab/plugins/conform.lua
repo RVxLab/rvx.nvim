@@ -1,4 +1,4 @@
-local utils = require("rvxlab.util")
+local utils = require("rvxlab.utils")
 local format_on_save_options = {
     timeout_ms = 500,
     lsp_fallback = true,

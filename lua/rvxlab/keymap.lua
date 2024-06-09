@@ -1,4 +1,4 @@
-local map = require("rvxlab.util").n_keymap
+local map = require("rvxlab.utils").n_keymap
 
 local function can_delete_buffer(buffer)
     buffer = buffer or 0

@@ -1,4 +1,4 @@
-local utils = require("rvxlab.util")
+local utils = require("rvxlab.utils")
 local lsp = require("rvxlab.lsp")
 
 return {
