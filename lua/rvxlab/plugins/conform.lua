@@ -11,6 +11,7 @@ return {
             php = { "pint", "php-cs-fixer" },
             javascript = { "prettierd", "prettier" },
             typescript = { "prettierd", "prettier" },
+            blade = { "prettierd", "prettier" },
             nix = { "alejandra" },
             lua = { "stylua" },
             sh = { "shellcheck" },
