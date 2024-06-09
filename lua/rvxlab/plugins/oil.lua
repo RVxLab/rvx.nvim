@@ -8,6 +8,9 @@ return {
             require("oil").open_float()
         end, "Open Oil"),
     },
+    cmd = {
+        "Oil",
+    },
     opts = {
         view_options = {
             show_hidden = true,
