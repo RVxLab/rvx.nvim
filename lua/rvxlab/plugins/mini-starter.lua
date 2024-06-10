@@ -1,14 +1,23 @@
 local make_footer_renderer = function()
-    local startup_time = nil
+    local startup_time_ms = 0
+    local plugin_count = 0
 
     vim.defer_fn(function()
-        startup_time = require("lazy").stats().startuptime
-        vim.print(startup_time)
+        local lazy = require("lazy")
+        startup_time_ms = lazy.stats().startuptime
+        plugin_count = #lazy.plugins()
         MiniStarter.refresh()
     end, 0)
 
     return function()
-        return startup_time and string.format("Startup took %d milliseconds", startup_time) or "Startup took"
+        local memory_usage_mb = vim.uv.getrusage().maxrss / 1024
+
+        return string.format(
+            "Startup time:\t%dms\nMemory used:\t%dMB\nPlugins:\t\t%d",
+            startup_time_ms,
+            memory_usage_mb,
+            plugin_count
+        )
     end
 end
 
