@@ -4,7 +4,8 @@ return {
     opts = true,
     priority = 100, -- Ensure Which Key is loaded before a lot of plugins
     init = function()
-        require("which-key").register({
+        local wk = require("which-key")
+        wk.register({
             ["<leader>L"] = { name = "[L]azy" },
             ["<leader>g"] = { name = "[G]eneral actions" },
             ["<leader>Q"] = { name = "[Q]uit buffers" },
@@ -21,6 +22,12 @@ return {
             ["<leader>p"] = { name = "[P]HP" },
             ["<leader>l"] = { name = "[L]aravel" },
             ["<leader>f"] = { name = "[F]ind files" },
+        })
+
+        wk.register({
+            ["<leader>s"] = { name = "Screenshot" },
+        }, {
+            mode = "v",
         })
     end,
 }
