@@ -18,6 +18,7 @@ return {
         },
         format_on_save = format_on_save_options,
     },
+    event = { "InsertEnter" },
     keys = {
         utils.lazy_key("<leader>gf", function()
             local options = vim.tbl_deep_extend("force", format_on_save_options, {
