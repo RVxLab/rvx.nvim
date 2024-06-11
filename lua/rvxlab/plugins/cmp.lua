@@ -21,6 +21,7 @@ return {
         },
         "saadparwaiz1/cmp_luasnip",
         "onsails/lspkind.nvim",
+        "luckasRanarison/tailwind-tools.nvim",
     },
     opts = function()
         local cmp = require("cmp")
@@ -44,7 +45,9 @@ return {
                 completeopt = "menu,menuone,noinsert",
             },
             formatting = {
-                format = lspkind.cmp_format(),
+                format = lspkind.cmp_format({
+                    before = require("tailwind-tools.cmp").lspkind_format,
+                }),
             },
             mapping = {
                 ["<C-n>"] = cmp.mapping.select_next_item(),

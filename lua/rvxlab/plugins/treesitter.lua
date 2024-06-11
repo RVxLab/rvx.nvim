@@ -34,6 +34,7 @@ return {
                 "php",
                 "blade",
                 "html",
+                "css",
             },
             highlight = {
                 enable = true,
