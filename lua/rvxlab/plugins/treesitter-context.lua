@@ -2,9 +2,7 @@ local utils = require("rvxlab.utils")
 
 return {
     "nvim-treesitter/nvim-treesitter-context",
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-    },
+    lazy = true,
     opts = {
         line_numbers = false,
         max_lines = 5,
