@@ -39,7 +39,16 @@ return {
         opts = function()
             return {
                 adapters = {
-                    require("neotest-pest"),
+                    require("neotest-pest")({
+                        sail_enabled = false,
+                        parallel = function()
+                            local threads_available = vim.uv.available_parallelism()
+                            local ideal_parallel_tests = math.floor(threads_available / 2)
+
+                            return math.min(0, ideal_parallel_tests)
+                        end,
+                        compact = true,
+                    }),
                     require("neotest-jest")({
                         env = {
                             CI = true,
