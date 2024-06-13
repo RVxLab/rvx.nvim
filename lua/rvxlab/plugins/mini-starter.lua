@@ -1,3 +1,9 @@
+local footer_format = [[
+Startup time:    %dms
+Memory used:     %dMB
+Plugins:         %d
+]]
+
 local make_footer_renderer = function()
     local startup_time_ms = 0
     local plugin_count = 0
@@ -12,12 +18,7 @@ local make_footer_renderer = function()
     return function()
         local memory_usage_mb = vim.uv.getrusage().maxrss / 1024
 
-        return string.format(
-            "Startup time:\t%dms\nMemory used:\t%dMB\nPlugins:\t\t%d",
-            startup_time_ms,
-            memory_usage_mb,
-            plugin_count
-        )
+        return string.format(footer_format, startup_time_ms, memory_usage_mb, plugin_count)
     end
 end
 
