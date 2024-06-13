@@ -14,7 +14,7 @@ function M.setup_remaps(buffer)
         vim.keymap.set("n", keymap, func, opts)
     end
 
-    map("<C-d>", vim.diagnostic.open_float, {
+    map("<C-x>", vim.diagnostic.open_float, {
         desc = "Open [D]iagnostic window",
     })
 
