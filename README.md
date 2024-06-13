@@ -13,7 +13,8 @@ My Neovim config from scratch
   - PHP (Pest)
   - JS/TS (Jest)
   - Rust (Nextest)
-- 🚧 Debugging using [NVim DAP](https://github.com/mfussenegger/nvim-dap)
+- Debugging using [NVim DAP](https://github.com/mfussenegger/nvim-dap) + [UI](https://github.com/rcarriga/nvim-dap-ui)
+  - JS/TS
   - Rust
 
 ## Inspirations

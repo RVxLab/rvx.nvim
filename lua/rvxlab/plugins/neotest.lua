@@ -40,8 +40,17 @@ return {
             return {
                 adapters = {
                     require("neotest-pest"),
-                    require("neotest-jest")({}),
+                    require("neotest-jest")({
+                        env = {
+                            CI = true,
+                        },
+                        -- For some reason, turning it off means turning it on???
+                        jest_test_discovery = false,
+                    }),
                     require("rustaceanvim.neotest"),
+                },
+                discovery = {
+                    enabled = false,
                 },
             }
         end,

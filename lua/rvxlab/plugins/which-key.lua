@@ -22,6 +22,7 @@ return {
             ["<leader>p"] = { name = "[P]HP" },
             ["<leader>l"] = { name = "[L]aravel" },
             ["<leader>f"] = { name = "[F]ind files" },
+            ["<leader>d"] = { name = "[D]ebugging" },
         })
 
         wk.register({

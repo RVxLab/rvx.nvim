@@ -9,6 +9,7 @@ return {
         library = {
             { path = "luvit-meta/library", words = { "vim%.uv" } },
             { path = "wezterm-types", mods = { "wezterm" } },
+            -- TODO: Add nvim-dap-ui
         },
     },
 }
