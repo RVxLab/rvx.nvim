@@ -34,11 +34,15 @@ return {
         end, "Find [s]ymbols in current document"),
     },
     opts = function()
+        local actions = require("telescope.actions")
+
         return {
             defaults = {
                 mappings = {
                     i = {
-                        ["<Esc>"] = require("telescope.actions").close, -- Remove the double esc need in Telescope
+                        ["<Esc>"] = actions.close, -- Remove the double esc need in Telescope
+                        ["<C-t>"] = actions.cycle_history_next,
+                        ["<C-r>"] = actions.cycle_history_prev,
                     },
                 },
                 -- Even if ignored files are included, I don't want to see what's in the .git folder
