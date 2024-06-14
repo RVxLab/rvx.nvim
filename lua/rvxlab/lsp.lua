@@ -46,14 +46,14 @@ function M.setup_remaps(buffer)
         desc = "[R]e[n]ame symbol",
     })
 
-    map("<leader>ht", function()
+    map("<leader>it", function()
         local filter = {
             bufnr = buffer,
         }
 
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
     end, {
-        desc = "[H]ints [T]oggle",
+        desc = "LSP: [T]oggle hints",
     })
 end
 
