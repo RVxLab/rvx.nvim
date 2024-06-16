@@ -1,4 +1,4 @@
 return {
     "tpope/vim-eunuch",
-    cmd = { "Remove", "Rename" },
+    cmd = { "Remove", "Rename", "Copy" },
 }
