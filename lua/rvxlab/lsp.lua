@@ -43,7 +43,7 @@ function M.setup_remaps(buffer)
     })
 
     map("<leader>rn", vim.lsp.buf.rename, {
-        desc = "[R]e[n]ame symbol",
+        desc = "Refactor: Re[n]ame symbol",
     })
 
     map("<leader>it", function()

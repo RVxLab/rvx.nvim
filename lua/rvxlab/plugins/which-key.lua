@@ -9,7 +9,11 @@ return {
             ["<leader>L"] = { name = "[L]azy" },
             ["<leader>g"] = { name = "[G]eneral actions" },
             ["<leader>Q"] = { name = "[Q]uit buffers" },
-            ["<leader>r"] = { name = "[R]ename" },
+            ["<leader>r"] = {
+                name = "[R]efactor",
+                e = { name = "Refactor: [E]xtract" },
+                i = { name = "Refactor: [I]nline" },
+            },
             ["["] = { name = "+Previous" },
             ["]"] = { name = "+Next" },
             ["<leader>x"] = { name = "Trouble" },

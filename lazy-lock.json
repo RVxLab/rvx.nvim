@@ -47,6 +47,7 @@
   "oil.nvim": { "branch": "master", "commit": "b77ed915ab1e53720a6283702816cea2695a2638" },
   "phpactor.nvim": { "branch": "main", "commit": "db250633e7b9f0e08cc7cce364de8b7adad4f6d2" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
+  "refactoring.nvim": { "branch": "master", "commit": "e6b10b2346bd7e469a5f17099775ad906da153ae" },
   "rustaceanvim": { "branch": "master", "commit": "2fa45427c01ded4d3ecca72e357f8a60fd8e46d4" },
   "tailwind-tools.nvim": { "branch": "master", "commit": "a95aaf11d9deca884743c9017323c0ffea0015f2" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9ef21b2e6bb6ebeaf349a0781745549bbb870d27" },
