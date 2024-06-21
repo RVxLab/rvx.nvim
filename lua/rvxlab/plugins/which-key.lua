@@ -9,11 +9,6 @@ return {
             ["<leader>L"] = { name = "[L]azy" },
             ["<leader>g"] = { name = "[G]eneral actions" },
             ["<leader>Q"] = { name = "[Q]uit buffers" },
-            ["<leader>r"] = {
-                name = "[R]efactor",
-                e = { name = "Refactor: [E]xtract" },
-                i = { name = "Refactor: [I]nline" },
-            },
             ["["] = { name = "+Previous" },
             ["]"] = { name = "+Next" },
             ["<leader>x"] = { name = "Trouble" },
@@ -32,6 +27,11 @@ return {
 
         wk.register({
             ["<leader>s"] = { name = "Screenshot" },
+            ["<leader>r"] = {
+                name = "[R]efactor",
+                e = { name = "Refactor: [E]xtract" },
+                i = { name = "Refactor: [I]nline" },
+            },
         }, {
             mode = "v",
         })
