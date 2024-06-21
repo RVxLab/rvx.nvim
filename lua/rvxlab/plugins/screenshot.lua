@@ -3,6 +3,7 @@ local utils = require("rvxlab.utils")
 return {
     "michaelrommel/nvim-silicon",
     cmd = "Silicon",
+    main = "nvim-silicon", -- Lazy removes the `nvim-` prefix by default
     keys = {
         utils.lazy_key(
             "<leader>sc",
