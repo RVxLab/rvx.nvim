@@ -70,6 +70,21 @@ return {
                     },
                 },
             },
+            -- Lua
+            [".luacheckrc"] = {
+                ["lua/*.lua"] = {
+                    type = "source",
+                    alternate = {
+                        "tests/{}_spec.lua",
+                    },
+                },
+                ["tests/*_spec.lua"] = {
+                    type = "test",
+                    alternate = {
+                        "lua/{}.lua",
+                    },
+                },
+            },
         }
     end,
 }
