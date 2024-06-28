@@ -23,6 +23,7 @@ return {
                 "jsonls",
                 "tailwindcss",
                 "html",
+                "cssls",
             },
         })
         require("mason-tool-installer").setup({
@@ -121,5 +122,6 @@ return {
         lspconfig.jsonls.setup(make_config({}))
         lspconfig.tailwindcss.setup(make_config({}))
         lspconfig.html.setup(make_config({}))
+        lspconfig.cssls.setup(make_config({}))
     end,
 }
