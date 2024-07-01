@@ -1,5 +1,8 @@
-default:
-    just --list
+default: restore
+
+# Restore all packages from lockfile
+restore:
+    nvim --headless "+Lazy! restore" +qa
 
 # Update packages
 update:
