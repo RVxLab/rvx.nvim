@@ -6,11 +6,10 @@ return {
     init = function()
         local wk = require("which-key")
         wk.register({
-            ["<leader>L"] = { name = "[L]azy" },
-            ["<leader>g"] = { name = "[G]eneral actions" },
+            ["<leader>g"] = { name = "[G]o to" },
             ["<leader>Q"] = { name = "[Q]uit buffers" },
-            ["["] = { name = "+Previous" },
-            ["]"] = { name = "+Next" },
+            ["["] = { name = "Previous" },
+            ["]"] = { name = "Next" },
             ["<leader>x"] = { name = "Trouble" },
             ["<leader>t"] = {
                 name = "[T]ests",
@@ -23,6 +22,11 @@ return {
             ["<leader>f"] = { name = "[F]ind files" },
             ["<leader>d"] = { name = "[D]ebugging" },
             ["<leader>h"] = { name = "Git: [H]unk" },
+            ["<leader>i"] = { name = "[I]nlay Hints" },
+            ["<leader>r"] = {
+                name = "[R]efactor",
+                i = { name = "Refactor: [I]nline" },
+            },
         })
 
         wk.register({
