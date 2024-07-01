@@ -25,8 +25,5 @@ require("lazy").setup("rvxlab.plugins", {
     },
 })
 
--- Set up keybinds
-require("rvxlab.keymap")
-
 -- Set up autocmds
 require("rvxlab.autocmd")
