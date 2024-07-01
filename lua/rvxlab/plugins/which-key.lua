@@ -19,7 +19,7 @@ return {
             },
             ["<leader>p"] = { name = "[P]HP" },
             ["<leader>l"] = { name = "[L]aravel" },
-            ["<leader>f"] = { name = "[F]ind files" },
+            ["<leader>f"] = { name = "[F]ind" },
             ["<leader>d"] = { name = "[D]ebugging" },
             ["<leader>h"] = { name = "Git: [H]unk" },
             ["<leader>i"] = { name = "[I]nlay Hints" },

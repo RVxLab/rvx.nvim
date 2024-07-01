@@ -13,25 +13,25 @@ return {
     keys = {
         utils.lazy_key("<leader>ff", function()
             require("telescope.builtin").find_files()
-        end, "[F]ind files"),
+        end, "Find: [F]iles"),
         utils.lazy_key("<leader>fF", function()
             require("telescope.builtin").find_files({
                 prompt_title = "All files",
                 no_ignore = true,
             })
-        end, "[F]ind all files"),
+        end, "Find: All [F]iles"),
         utils.lazy_key("<leader>fg", function()
             require("telescope").extensions.live_grep_args.live_grep_args()
-        end, "[G]rep for files"),
+        end, "Find: [G]rep"),
         utils.lazy_key("<leader>fb", function()
             require("telescope.builtin").buffers()
-        end, "[F]ind buffers"),
+        end, "Find: [B]uffers"),
         utils.lazy_key("<leader>fh", function()
             require("telescope.builtin").oldfiles()
-        end, "Find in [h]istory"),
+        end, "Find: [H]istory"),
         utils.lazy_key("<leader>fs", function()
             require("telescope.builtin").lsp_document_symbols()
-        end, "Find [s]ymbols in current document"),
+        end, "Find: [S]ymbols in current document"),
     },
     opts = function()
         local actions = require("telescope.actions")
