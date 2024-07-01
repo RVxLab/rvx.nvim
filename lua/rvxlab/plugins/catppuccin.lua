@@ -7,8 +7,7 @@ return {
         flavour = "macchiato",
         integrations = {
             neotest = true,
-            noice = true,
-            notify = true,
+            fidget = true,
             lsp_trouble = true,
             which_key = true,
         },

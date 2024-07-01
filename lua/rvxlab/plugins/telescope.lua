@@ -8,7 +8,6 @@ return {
         "nvim-tree/nvim-web-devicons",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0" },
-        "nvim-telescope/telescope-ui-select.nvim",
     },
     keys = {
         utils.lazy_key("<leader>ff", function()
@@ -73,6 +72,5 @@ return {
 
         telescope.load_extension("fzf")
         telescope.load_extension("live_grep_args")
-        telescope.load_extension("ui-select")
     end,
 }

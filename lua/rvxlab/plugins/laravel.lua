@@ -7,7 +7,7 @@ return {
         "tpope/vim-dotenv",
         "MunifTanjim/nui.nvim",
         "nvimtools/none-ls.nvim",
-        "rcarriga/nvim-notify",
+        "j-hui/fidget.nvim",
     },
     cmd = { "Artisan", "Laravel" },
     keys = {
