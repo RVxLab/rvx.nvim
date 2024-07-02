@@ -71,7 +71,7 @@
   "vim-projectionist": { "branch": "master", "commit": "3736bd4a5f23b30821cbb892385bb1f1b0088cfc" },
   "vim-rooter": { "branch": "master", "commit": "45e53f01e4e1c4a3ee20814de232162713aff578" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
-  "vscode-js-debug": { "branch": "main", "commit": "a710e44c8391e70c179279f54e9fc12d81452945" },
+  "vscode-js-debug": { "branch": "main", "commit": "b2a955adba0a9708b95ac55c13385c4460518bc3" },
   "vscode-php-debug": { "branch": "main", "commit": "5c37f120f74b3eec3bda9f8e953afe9434263664" },
   "wezterm-types": { "branch": "main", "commit": "1518752906ba3fac0060d9efab6e4d3ec15d4b5a" },
   "which-key.nvim": { "branch": "main", "commit": "0099511294f16b81c696004fa6a403b0ae61f7a0" }
