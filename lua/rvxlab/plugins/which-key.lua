@@ -27,6 +27,7 @@ return {
                 name = "[R]efactor",
                 i = { name = "Refactor: [I]nline" },
             },
+            ["<leader>o"] = { name = "[O]verseer" },
         })
 
         wk.register({
