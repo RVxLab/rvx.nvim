@@ -30,14 +30,12 @@ return {
 
         return {
             header = require("art.header"),
-            -- TODO: Clean these up and add more stuff
             items = {
-                starter.sections.builtin_actions(),
-                starter.sections.telescope(),
-                starter.sections.recent_files(10, true, true),
-                { name = "Lazy", action = "Lazy", section = "General" },
-                { name = "Mason", action = "Mason", section = "General" },
-                { name = "Explore Filesystem", action = "Oil", section = "General" },
+                { name = "Search for files", action = "Telescope find_files", section = "Filesystem" },
+                { name = "Browse files", action = "Oil", section = "Filesystem" },
+                { name = "Manage plugins", action = "Lazy", section = "Editor" },
+                { name = "Manage language servers", action = "Mason", section = "Editor" },
+                starter.sections.recent_files(3, true, true),
             },
             silent = true,
             footer = make_footer_renderer(),
