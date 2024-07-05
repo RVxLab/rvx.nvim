@@ -118,4 +118,13 @@ function M.lazy_key(mapping, action, description, opts)
     })
 end
 
+---Pad a string on both sides
+---
+---@param str string
+---@param padding_length integer
+function M.pad_string(str, padding_length)
+    local padding = string.rep(" ", padding_length)
+    return padding .. str .. padding
+end
+
 return M
