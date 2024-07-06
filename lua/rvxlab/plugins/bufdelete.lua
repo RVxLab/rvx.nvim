@@ -21,6 +21,9 @@ local close_strategies = {
 
         oil.close()
     end,
+    ["aerial"] = function()
+        require("aerial").close()
+    end,
 }
 
 ---@param buffer integer
