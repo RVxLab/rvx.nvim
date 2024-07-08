@@ -24,6 +24,7 @@ return {
                 "tailwindcss",
                 "html",
                 "cssls",
+                "intelephense",
             },
         })
         require("mason-tool-installer").setup({
@@ -123,5 +124,6 @@ return {
         lspconfig.tailwindcss.setup(make_config({}))
         lspconfig.html.setup(make_config({}))
         lspconfig.cssls.setup(make_config({}))
+        lspconfig.intelephense.setup(make_config({}))
     end,
 }
