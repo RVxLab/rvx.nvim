@@ -39,6 +39,24 @@ return {
                     type = "migration",
                 },
             },
+            -- PHP
+            ["composer.json"] = {
+                ["src/*.php"] = {
+                    type = "source",
+                    alternate = {
+                        "tests/Unit/{}Test.php",
+                        "tests/Feature/{}Test.php",
+                    },
+                },
+                ["test/Unit/*Test.php"] = {
+                    type = "test",
+                    alternate = "src/{}.php",
+                },
+                ["test/Feature/*Test.php"] = {
+                    type = "test",
+                    alternate = "src/{}.php",
+                },
+            },
             -- TypeScript
             ["tsconfig.json"] = {
                 ["*.test.ts"] = {
