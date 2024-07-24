@@ -1,3 +1,5 @@
+local fn = require("rvxlab.utils.function")
+
 local M = {}
 
 ---Check if a string starts with a given substring
@@ -20,7 +22,7 @@ end
 ---
 ---@param str string
 ---@param delimiter string
----@return table
+---@return table<integer, string>
 function M.string_split(str, delimiter)
     local parts = {}
     local pattern = string.format("[^%s]+", delimiter)
@@ -30,6 +32,22 @@ function M.string_split(str, delimiter)
     end
 
     return parts
+end
+
+---Join a string
+---
+---@param strings table<integer, string>
+---@param glue string
+---@return string
+function M.string_join(strings, glue)
+    local str = strings[1]
+    local remaining = { fn.unpack(strings, 2, #strings) }
+
+    for _, s in ipairs(remaining) do
+        str = str .. glue .. s
+    end
+
+    return str
 end
 
 return M

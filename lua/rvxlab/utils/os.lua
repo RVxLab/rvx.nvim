@@ -1,7 +1,7 @@
 local M = {}
 
 ---Check if the current system is macOS
----
+---@return boolean
 function M.is_macos()
     return vim.fn.has("macunix") == 1
 end

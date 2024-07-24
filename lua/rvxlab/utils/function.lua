@@ -1,6 +1,6 @@
 local M = {}
 
-local unpack = table.unpack or unpack
+M.unpack = table.unpack or unpack
 
 ---Bind a function with default arguments for later use
 ---See also [Currying](https://javascript.info/currying-partials)
@@ -8,7 +8,7 @@ function M.bind(fn, ...)
     local args = { ... }
 
     return function()
-        return fn(unpack(args))
+        return fn(M.unpack(args))
     end
 end
 
@@ -18,7 +18,7 @@ function M.pbind(fn, ...)
     local args = { ... }
 
     return function()
-        return pcall(fn, unpack(args))
+        return pcall(fn, M.unpack(args))
     end
 end
 

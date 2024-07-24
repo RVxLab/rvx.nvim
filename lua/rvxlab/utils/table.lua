@@ -1,8 +1,9 @@
 local M = {}
 
 ---Grab all keys of a table and return them
----@param table table
----@return table
+---@generic TKey
+---@param table table<TKey, any>
+---@return table<TKey>
 function M.keys(table)
     local keys = {}
 
@@ -11,6 +12,20 @@ function M.keys(table)
     end
 
     return keys
+end
+
+---Map over a table
+---@generic TKey, TValue
+---@param table table<TKey, TValue>
+---@param fn fun(value: TValue, key: TKey): TValue
+function M.map(table, fn)
+    local results = {}
+
+    for k, v in ipairs(table) do
+        results[k] = fn(v, k)
+    end
+
+    return results
 end
 
 return M
