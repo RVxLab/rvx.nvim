@@ -21,3 +21,11 @@ My Neovim config from scratch
 
 - [Jess Archer's Dotfiles](https://github.com/jessarcher/dotfiles)
 - [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
+
+## Screenshots
+
+![Dashboard using Mini Starter](./screenshots/starter.png)
+
+![Markdown File](./screenshots/markdown.png)
+
+![PHP File](./screenshots/php.png)
