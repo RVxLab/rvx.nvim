@@ -3,12 +3,22 @@ local utils = require("rvxlab.utils")
 local M = {}
 
 M.filepath = function()
+    local bt = vim.api.nvim_get_option_value("bt", { buf = 0 })
+    local ft = vim.api.nvim_get_option_value("ft", { buf = 0 })
+
+    if bt == "nofile" then
+        return "[No Name]"
+    end
+
+    if bt ~= "" then
+        return ft
+    end
+
     local path = vim.fn.expand("%:p")
     local path_parts = utils.string_split(path, "/")
     local start = math.max(#path_parts - 2, 0)
     local parts = { utils.unpack(path_parts, start, #path_parts) }
 
-    ---comment
     ---@param value string
     ---@param index integer
     ---@return string
