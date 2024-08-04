@@ -69,6 +69,7 @@
   "vim-dotenv": { "branch": "master", "commit": "5c51cfcf8d87280d6414e03cd6b253eb70ecb800" },
   "vim-eunuch": { "branch": "master", "commit": "8fb3904be27b6b60d086f87c2570085902414069" },
   "vim-fugitive": { "branch": "master", "commit": "0444df68cd1cdabc7453d6bd84099458327e5513" },
+  "vim-heritage": { "branch": "main", "commit": "574baeb0679681a710adce5110a0d8b2ae1c2637" },
   "vim-pasta": { "branch": "master", "commit": "2b786703eef9f82ae7a56f3de4ee43e1e5efaaa5" },
   "vim-projectionist": { "branch": "master", "commit": "3736bd4a5f23b30821cbb892385bb1f1b0088cfc" },
   "vim-rooter": { "branch": "master", "commit": "4a0df2f1b0f3d69e8f7e19afe464a7c3a7af89a2" },
