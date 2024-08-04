@@ -4,6 +4,12 @@ local format_on_save_options = {
     lsp_fallback = true,
 }
 
+local prettier_opts = {
+    "prettierd",
+    "prettier",
+    stop_after_first = true,
+}
+
 return {
     "stevearc/conform.nvim",
     cmd = { "ConformInfo" },
@@ -25,10 +31,10 @@ return {
     opts = {
         formatters_by_ft = {
             php = { "pint", "php-cs-fixer" },
-            javascript = { { "prettierd", "prettier" } },
-            typescript = { { "prettierd", "prettier" } },
-            typescriptreact = { { "prettierd", "prettier" } },
-            blade = { { "prettierd", "prettier" } },
+            javascript = prettier_opts,
+            typescript = prettier_opts,
+            typescriptreact = prettier_opts,
+            blade = prettier_opts,
             nix = { "alejandra" },
             lua = { "stylua" },
             sh = { "shellcheck" },
