@@ -50,7 +50,7 @@
   "oil.nvim": { "branch": "master", "commit": "fcca212c2e966fc3dec1d4baf888e670631d25d1" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "refactoring.nvim": { "branch": "master", "commit": "c406fc5fb4d7ba5fce7b668637075fad6e75e9f8" },
-  "render-markdown": { "branch": "main", "commit": "6392a5dfa10f367e10fe58ea9c2faf3179b145d5" },
+  "render-markdown.nvim": { "branch": "main", "commit": "6392a5dfa10f367e10fe58ea9c2faf3179b145d5" },
   "rustaceanvim": { "branch": "master", "commit": "047f9c9d8cd2861745eb9de6c1570ee0875aa795" },
   "sqlite.lua": { "branch": "master", "commit": "d0ffd703b56d090d213b497ed4eb840495f14a11" },
   "tailwind-tools.nvim": { "branch": "master", "commit": "72f01ba654ffaf382c1df996b77cc53ec7860f70" },

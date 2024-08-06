@@ -1,9 +1,7 @@
 local utils = require("rvxlab.utils")
 
 return {
-    "MeanderingProgrammer/markdown.nvim",
-    main = "render-markdown",
-    name = "render-markdown",
+    "MeanderingProgrammer/render-markdown.nvim",
     keys = {
         utils.lazy_key("<leader>cm", function()
             require("render-markdown").toggle()
