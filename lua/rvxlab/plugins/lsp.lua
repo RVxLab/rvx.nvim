@@ -125,5 +125,6 @@ return {
         lspconfig.html.setup(make_config({}))
         lspconfig.cssls.setup(make_config({}))
         lspconfig.intelephense.setup(make_config({}))
+        lspconfig.gdscript.setup(make_config({}))
     end,
 }
