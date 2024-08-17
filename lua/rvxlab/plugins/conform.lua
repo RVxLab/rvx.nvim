@@ -5,6 +5,7 @@ local format_on_save_options = {
 }
 
 local prettier_opts = {
+    "biome",
     "prettierd",
     "prettier",
     stop_after_first = true,
