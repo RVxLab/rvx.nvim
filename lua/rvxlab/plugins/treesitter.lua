@@ -1,9 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    commit = "8a966f32c973511f9697264b3533e9846d29fd09",
+    -- commit = "8a966f32c973511f9697264b3533e9846d29fd09",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-context",
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        -- Disabled awaiting https://github.com/nvim-treesitter/nvim-treesitter-textobjects/pull/631
+        -- "nvim-treesitter/nvim-treesitter-textobjects",
     },
     build = ":TSUpdate",
     event = { "BufReadPre", "BufNewFile" },
