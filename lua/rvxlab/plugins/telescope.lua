@@ -2,7 +2,6 @@ local utils = require("rvxlab.utils")
 
 return {
     "nvim-telescope/telescope.nvim",
-    version = "~0.1",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",

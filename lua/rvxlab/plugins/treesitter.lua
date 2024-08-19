@@ -7,7 +7,6 @@ return {
         -- "nvim-treesitter/nvim-treesitter-textobjects",
     },
     build = ":TSUpdate",
-    event = { "BufReadPre", "BufNewFile" },
     config = function()
         -- First we add the Blade parser
         local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
