@@ -46,7 +46,15 @@ return {
             },
             formatting = {
                 format = lspkind.cmp_format({
-                    before = require("tailwind-tools.cmp").lspkind_format,
+                    before = function(entry, vim_item)
+                        local ok, mod = pcall(require, "tailwind-tools.cmp")
+
+                        if ok then
+                            return mod.lspkind_format(entry, vim_item)
+                        end
+
+                        return vim_item
+                    end,
                 }),
             },
             mapping = {

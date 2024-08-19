@@ -53,6 +53,11 @@ return {
 
         local lspconfig = require("lspconfig")
 
+        -- Set up all language servers
+        -- The following are installed but should not be initialized here:
+        --
+        -- - TailwindCSS: Set up by tailwind-tools
+        -- - Rust Analyzer: Set up by rustaceanvim
         lspconfig.tsserver.setup(make_config({
             on_attach = function(_client, buffer)
                 lsp.setup_remaps(buffer)
@@ -121,7 +126,6 @@ return {
         lspconfig.bashls.setup(make_config({}))
         lspconfig.yamlls.setup(make_config({}))
         lspconfig.jsonls.setup(make_config({}))
-        lspconfig.tailwindcss.setup(make_config({}))
         lspconfig.html.setup(make_config({}))
         lspconfig.cssls.setup(make_config({}))
         lspconfig.intelephense.setup(make_config({}))

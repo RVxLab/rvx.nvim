@@ -2,7 +2,7 @@ local M = {}
 
 ---Shortcut for a normal mode keymapping
 ---@param mapping string
----@param action function
+---@param action function|string
 ---@param description string|nil
 ---@param opts table|nil
 function M.n_keymap(mapping, action, description, opts)
