@@ -128,7 +128,9 @@ return {
         lspconfig.jsonls.setup(make_config({}))
         lspconfig.html.setup(make_config({}))
         lspconfig.cssls.setup(make_config({}))
-        lspconfig.intelephense.setup(make_config({}))
+        lspconfig.intelephense.setup(make_config({
+            filetypes = { "php", "blade" },
+        }))
         lspconfig.gdscript.setup(make_config({}))
     end,
 }
