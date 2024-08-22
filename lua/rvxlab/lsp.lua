@@ -18,7 +18,7 @@ function M.setup_remaps(buffer)
         desc = "Open [D]iagnostic window",
     })
 
-    map("<leader>ga", vim.lsp.buf.code_action, {
+    map("<leader>ca", vim.lsp.buf.code_action, {
         desc = "Code [A]ction",
     })
 
@@ -31,15 +31,15 @@ function M.setup_remaps(buffer)
     })
 
     map("<leader>gr", telescope.lsp_references, {
-        desc = "Find [r]eferences",
+        desc = "Go to: [R]eferences",
     })
 
     map("<leader>gi", telescope.lsp_implementations, {
-        desc = "Find [i]mplementations",
+        desc = "Go to: [I]mplementations",
     })
 
     map("<leader>gd", telescope.lsp_definitions, {
-        desc = "Go to [d]efinition",
+        desc = "Go to: [D]efinition",
     })
 
     map("<leader>rn", vim.lsp.buf.rename, {

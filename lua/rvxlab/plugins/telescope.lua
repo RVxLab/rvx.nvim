@@ -18,18 +18,24 @@ return {
                 no_ignore = true,
             })
         end, "Find: All [F]iles"),
-        utils.lazy_key("<leader>fg", function()
+        utils.lazy_key("<leader>fs", function()
             require("telescope").extensions.live_grep_args.live_grep_args()
-        end, "Find: [G]rep"),
+        end, "Find: [S]earch"),
         utils.lazy_key("<leader>fb", function()
             require("telescope.builtin").buffers()
         end, "Find: [B]uffers"),
-        utils.lazy_key("<leader>fh", function()
-            require("telescope.builtin").oldfiles()
-        end, "Find: [H]istory"),
-        utils.lazy_key("<leader>fs", function()
-            require("telescope.builtin").lsp_document_symbols()
-        end, "Find: [S]ymbols in current document"),
+        utils.lazy_key("<leader>fgf", function()
+            require("telescope.builtin").git_files()
+        end, "Find: Git [F]iles"),
+        utils.lazy_key("<leader>fgc", function()
+            require("telescope.builtin").git_commits()
+        end, "Find: Git [C]ommits"),
+        utils.lazy_key("<leader>fgb", function()
+            require("telescope.builtin").git_branches()
+        end, "Find: Git [B]rances"),
+        utils.lazy_key("<leader>fgs", function()
+            require("telescope.builtin").git_status()
+        end, "Find: Git [S]tatus"),
     },
     opts = function()
         local actions = require("telescope.actions")

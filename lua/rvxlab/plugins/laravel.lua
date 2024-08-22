@@ -12,8 +12,8 @@ return {
     },
     cmd = { "Artisan", "Laravel" },
     keys = {
-        utils.lazy_key("<leader>la", ":Laravel artisan<cr>", "Open [A]rtisan"),
-        utils.lazy_key("<leader>lr", ":Laravel routes<cr>", "Show Laravel [r]outes"),
+        utils.lazy_key("<leader>pla", ":Laravel artisan<cr>", "Open [A]rtisan"),
+        utils.lazy_key("<leader>plr", ":Laravel routes<cr>", "Show Laravel [r]outes"),
     },
     event = { "VeryLazy" },
     config = true,
