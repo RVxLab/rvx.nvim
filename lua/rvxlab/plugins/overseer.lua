@@ -7,10 +7,20 @@ return {
         "nvim-telescope/telescope.nvim",
         "j-hui/fidget.nvim",
     },
-    enabled = false,
+    config = {
+        task_list = {
+            direction = "right",
+        },
+    },
     keys = {
         utils.lazy_key("<leader>or", function()
-            -- TODO
+            require("overseer").run_template()
         end, "Overseer: [R]un"),
+        utils.lazy_key("<leader>oo", function()
+            require("overseer").open()
+        end, "Overseer: [O]pen"),
+        utils.lazy_key("<leader>ot", function()
+            require("overseer").toggle()
+        end, "Overseer: [T]oggle"),
     },
 }
