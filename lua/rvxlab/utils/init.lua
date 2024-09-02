@@ -30,5 +30,6 @@ M.string_join = string_utils.string_join
 -- Tables
 M.keys = table_utils.keys
 M.map = table_utils.map
+M.values = table_utils.values
 
 return M
