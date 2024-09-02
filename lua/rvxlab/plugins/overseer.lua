@@ -9,7 +9,7 @@ return {
     },
     config = {
         task_list = {
-            direction = "right",
+            direction = "bottom",
         },
     },
     keys = {
