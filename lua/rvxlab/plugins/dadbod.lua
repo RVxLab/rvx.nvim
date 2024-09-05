@@ -15,11 +15,7 @@ return {
     init = function()
         vim.g.db_ui_use_nerd_fonts = 1
 
-        local dadbob_json = vim.fn.findfile(".dadbod.json", "**")
-
-        if dadbob_json == "" then
-            dadbob_json = vim.fn.findfile(".dadbob.json", vim.loop.cwd() .. "/.;")
-        end
+        local dadbob_json = vim.fn.findfile(".dadbod.json")
 
         if dadbob_json ~= "" then
             local file_path = vim.loop.cwd() .. "/" .. dadbob_json
