@@ -2,6 +2,7 @@ local utils = require("rvxlab.utils")
 
 return {
     "AckslD/nvim-neoclip.lua",
+    enabled = false,
     dependencies = {
         "nvim-telescope/telescope.nvim",
         { "kkharji/sqlite.lua", module = "sqlite" },
