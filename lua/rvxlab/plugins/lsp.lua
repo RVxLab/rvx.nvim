@@ -126,6 +126,16 @@ return {
         lspconfig.intelephense.setup(make_config({
             filetypes = { "php", "blade" },
         }))
+
+        -- TODO: Revisit when PHPActor supports PHP 8.3
+        -- lspconfig.phpactor.setup(make_config({
+        --     init_options = {
+        --         ["completion_worse.completor.constant.enabled"] = true,
+        --         ["language_server_phpstan.enabled"] = true,
+        --         ["language_server_worse_reflection.inlay_hints.enable"] = true,
+        --         ["language_server_worse_reflection.inlay_hints.types"] = true,
+        --     },
+        -- }))
         lspconfig.gdscript.setup(make_config({}))
     end,
 }
