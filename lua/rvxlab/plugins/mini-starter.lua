@@ -34,7 +34,6 @@ return {
                 { name = "Search for files", action = "Telescope find_files", section = "Filesystem" },
                 { name = "Browse files", action = "Oil", section = "Filesystem" },
                 { name = "Manage plugins", action = "Lazy", section = "Editor" },
-                { name = "Manage language servers", action = "Mason", section = "Editor" },
                 starter.sections.recent_files(3, true, true),
             },
             silent = true,
