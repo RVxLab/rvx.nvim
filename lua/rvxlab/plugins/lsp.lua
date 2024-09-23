@@ -8,32 +8,10 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
         require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "tsserver",
-                "rust_analyzer",
-                "lua_ls",
-                "volar",
-                "bashls",
-                "yamlls",
-                "jsonls",
-                "tailwindcss",
-                "html",
-                "cssls",
-                "intelephense",
-            },
-        })
-        require("mason-tool-installer").setup({
-            ensure_installed = {
-                "eslint_d",
-                "prettierd",
-                "shellcheck",
-            },
-        })
+        require("mason-lspconfig").setup()
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
