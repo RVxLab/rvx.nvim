@@ -5,14 +5,10 @@ return {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
+        "nvim-lua/plenary.nvim",
     },
     config = function()
-        require("mason").setup()
-        require("mason-lspconfig").setup()
-
         local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
         local default_config = {
@@ -34,7 +30,7 @@ return {
         --
         -- - TailwindCSS: Set up by tailwind-tools
         -- - Rust Analyzer: Set up by rustaceanvim
-        lspconfig.tsserver.setup(make_config({
+        lspconfig.ts_ls.setup(make_config({
             on_attach = function(_client, buffer)
                 lsp.setup_remaps(buffer)
             end,
@@ -55,9 +51,32 @@ return {
                     {
                         name = "@vue/typescript-plugin",
                         location = utils.invoke(function()
-                            local registry = require("mason-registry")
-                            local plugin_path = registry.get_package("vue-language-server"):get_install_path()
-                            return plugin_path .. "/node_modules/@vue/language-server"
+                            local Job = require("plenary.job")
+                            local lsp_name = "vue-language-server"
+
+                            local output, code = Job:new({
+                                command = "which",
+                                args = { lsp_name },
+                                env = vim.fn.environ(),
+                            }):sync()
+
+                            if code ~= 0 or output == nil then
+                                return nil
+                            end
+
+                            local path = vim.fn.resolve(output[1])
+                            local dirname = path:sub(0, -#lsp_name - 1)
+
+                            -- This works with Nix, not sure about other places
+                            local install_path = vim.fn.simplify(dirname .. "/../")
+
+                            local lsp_dir = vim.fn.finddir("@vue/language-server", install_path .. "**")
+
+                            if lsp_dir then
+                                return lsp_dir
+                            end
+
+                            return nil
                         end),
                         languages = { "vue" },
                     },
