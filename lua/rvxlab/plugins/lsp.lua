@@ -32,7 +32,6 @@ return {
                 "eslint_d",
                 "prettierd",
                 "shellcheck",
-                "luacheck",
             },
         })
 
