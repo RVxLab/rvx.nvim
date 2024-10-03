@@ -1,9 +1,10 @@
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
-        "nvim-tree/nvim-web-devicons",
+        "echasnovski/mini.icons",
         "folke/trouble.nvim",
     },
+    enabled = false,
     config = function()
         local trouble = require("trouble")
 
@@ -23,7 +24,6 @@ return {
             },
             sections = {
                 lualine_c = {
-                    require("rvxlab.lualine.components").filepath,
                     {
                         symbols.get,
                         cond = symbols.has,

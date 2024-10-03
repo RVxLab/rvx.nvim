@@ -4,7 +4,7 @@ return {
     dependencies = {
         "catppuccin/nvim",
         "lewis6991/gitsigns.nvim",
-        "nvim-tree/nvim-web-devicons",
+        "echasnovski/mini.icons",
     },
     -- enabled = false,
     event = "UiEnter",

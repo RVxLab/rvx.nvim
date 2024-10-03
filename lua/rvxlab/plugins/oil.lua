@@ -2,7 +2,7 @@ local utils = require("rvxlab.utils")
 
 return {
     "stevearc/oil.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "echasnovski/mini.icons" },
     keys = {
         utils.lazy_key("-", function()
             require("oil").open_float()

@@ -2,6 +2,10 @@ local utils = require("rvxlab.utils")
 
 return {
     "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "echasnovski/mini.icons",
+    },
     keys = {
         utils.lazy_key("<leader>cm", function()
             require("render-markdown").toggle()
@@ -9,8 +13,4 @@ return {
     },
     ft = { "markdown" },
     opts = {},
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "nvim-tree/nvim-web-devicons",
-    },
 }

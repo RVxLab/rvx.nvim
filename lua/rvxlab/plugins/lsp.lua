@@ -137,5 +137,6 @@ return {
         --     },
         -- }))
         lspconfig.gdscript.setup(make_config({}))
+        lspconfig.zls.setup(make_config({}))
     end,
 }

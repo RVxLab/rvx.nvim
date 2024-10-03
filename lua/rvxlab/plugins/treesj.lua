@@ -3,6 +3,7 @@ local utils = require("rvxlab.utils")
 return {
     "Wansmer/treesj",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
+    enabled = false,
     keys = {
         utils.lazy_key("gJ", function()
             require("treesj").join()
