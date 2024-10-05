@@ -7,7 +7,7 @@ return {
         "nvim-telescope/telescope.nvim",
         "j-hui/fidget.nvim",
     },
-    config = {
+    opts = {
         task_list = {
             direction = "bottom",
         },
