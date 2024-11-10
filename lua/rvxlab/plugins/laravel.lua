@@ -9,6 +9,7 @@ return {
         "MunifTanjim/nui.nvim",
         "nvimtools/none-ls.nvim",
         "j-hui/fidget.nvim",
+        "kevinhwang91/promise-async",
     },
     cmd = { "Artisan", "Laravel" },
     keys = {
@@ -17,7 +18,4 @@ return {
     },
     event = { "VeryLazy" },
     config = true,
-    init = function()
-        require("telescope").load_extension("laravel")
-    end,
 }
