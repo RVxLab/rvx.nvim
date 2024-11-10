@@ -3,11 +3,7 @@ local lsp = require("rvxlab.lsp")
 
 return {
     "gbprod/phpactor.nvim",
-    enabled = false,
-    build = function()
-        require("phpactor.handler.update")()
-    end,
-    ft = "php",
+    ft = { "php", "blade" },
     keys = {
         utils.lazy_key("<leader>pm", function()
             require("phpactor").rpc("context_menu", {})
@@ -17,11 +13,20 @@ return {
         end, "Open Phpactor Context [M]enu"),
     },
     opts = {
+        install = {
+            bin = "phpactor",
+        },
         lspconfig = {
             options = {
                 on_attach = lsp.on_attach,
+                version = "phpactor --version",
+                filetypes = { "php", "blade" },
                 init_options = {
-                    ["language_server_worse_reflection.inlay_hints.enable"] = true,
+                    ["completion_worse.completor.constant.enabled"] = true,
+                    ["completion_worse.experimantal"] = true,
+                    ["language_server_phpstan.enabled"] = true,
+                    -- ["language_server_worse_reflection.inlay_hints.enable"] = true,
+                    -- ["language_server_worse_reflection.inlay_hints.types"] = true,
                 },
             },
         },
