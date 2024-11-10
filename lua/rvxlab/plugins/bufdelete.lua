@@ -54,6 +54,7 @@ end
 
 return {
     "famiu/bufdelete.nvim",
+    disabled = true,
     keys = {
         utils.lazy_key("<leader>q", function()
             local filetype = get_filetype_for_buffer(0)
