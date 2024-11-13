@@ -21,6 +21,7 @@ return {
                 "intelephense",
                 "lua_ls",
                 "jsonls",
+                "phpactor",
                 "rust_analyzer",
                 "tailwindcss",
                 "ts_ls",
@@ -134,18 +135,16 @@ return {
         -- lspconfig.intelephense.setup(make_config({
         --     filetypes = { "php", "blade" },
         -- }))
-
-        -- See phpactor.lua
-        -- lspconfig.phpactor.setup(make_config({
-        --     filetypes = { "php", "blade" },
-        --     init_options = {
-        --         ["completion_worse.completor.constant.enabled"] = true,
-        --         ["completion_worse.experimantal"] = true,
-        --         ["language_server_phpstan.enabled"] = true,
-        --         ["language_server_worse_reflection.inlay_hints.enable"] = true,
-        --         ["language_server_worse_reflection.inlay_hints.types"] = true,
-        --     },
-        -- }))
+        lspconfig.phpactor.setup(make_config({
+            filetypes = { "php", "blade" },
+            init_options = {
+                ["completion_worse.completor.constant.enabled"] = true,
+                ["completion_worse.experimantal"] = true,
+                ["language_server_phpstan.enabled"] = true,
+                -- ["language_server_worse_reflection.inlay_hints.enable"] = true,
+                -- ["language_server_worse_reflection.inlay_hints.types"] = true,
+            },
+        }))
         lspconfig.gdscript.setup(make_config({}))
         lspconfig.zls.setup(make_config({}))
     end,
