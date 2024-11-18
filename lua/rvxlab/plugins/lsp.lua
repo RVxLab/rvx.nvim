@@ -132,19 +132,26 @@ return {
         lspconfig.jsonls.setup(make_config({}))
         lspconfig.html.setup(make_config({}))
         lspconfig.cssls.setup(make_config({}))
-        -- lspconfig.intelephense.setup(make_config({
-        --     filetypes = { "php", "blade" },
-        -- }))
-        lspconfig.phpactor.setup(make_config({
+        lspconfig.intelephense.setup(make_config({
             filetypes = { "php", "blade" },
-            init_options = {
-                ["completion_worse.completor.constant.enabled"] = true,
-                ["completion_worse.experimantal"] = true,
-                ["language_server_phpstan.enabled"] = true,
-                -- ["language_server_worse_reflection.inlay_hints.enable"] = true,
-                -- ["language_server_worse_reflection.inlay_hints.types"] = true,
+            settings = {
+                intelephense = {
+                    environment = {
+                        phpVersion = "8.3.0",
+                    },
+                },
             },
         }))
+        -- lspconfig.phpactor.setup(make_config({
+        --     filetypes = { "php", "blade" },
+        --     init_options = {
+        --         ["completion_worse.completor.constant.enabled"] = true,
+        --         ["completion_worse.experimantal"] = true,
+        --         ["language_server_phpstan.enabled"] = true,
+        --         -- ["language_server_worse_reflection.inlay_hints.enable"] = true,
+        --         -- ["language_server_worse_reflection.inlay_hints.types"] = true,
+        --     },
+        -- }))
         lspconfig.gdscript.setup(make_config({}))
         lspconfig.zls.setup(make_config({}))
     end,
