@@ -60,7 +60,7 @@ return {
             mapping = {
                 ["<C-n>"] = cmp.mapping.select_next_item(),
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
-                ["<C-\\>"] = cmp.mapping.confirm({ select = true }),
+                ["<CR>"] = cmp.mapping.confirm({ select = false }),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<C-d>"] = cmp.mapping.open_docs(),
                 ["<C-Space>"] = cmp.mapping.complete(),
