@@ -6,6 +6,9 @@ vim.api.nvim_create_user_command("RvxDumpPlugins", function(opts)
         { name = "mini.starter", url = "https://github.com/echasnovski/mini.starter" },
         { name = "mini.splitjoin", url = "https://github.com/echasnovski/mini.splitjoin" },
         { name = "mini.pick", url = "https://github.com/echasnovski/mini.pick" },
+        { name = "mini.indentscope", url = "https://github.com/echasnovski/mini.indentscope" },
+        { name = "mini.surround", url = "https://github.com/echasnovski/mini.surround" },
+        { name = "mini.pairs", url = "https://github.com/echasnovski/mini.pairs" },
     }
 
     local format = opts.fargs[1] or "json"
