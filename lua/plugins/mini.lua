@@ -22,8 +22,8 @@ end)
 
 later(function()
     require("mini.splitjoin").setup()
-    require("mini.pick").setup()
 
+    require("mini.pick").setup()
     utils.n_keymap("<leader>ff", MiniPick.builtin.files, "Find [F]iles")
     utils.n_keymap("<leader>fs", MiniPick.builtin.grep_live, "[S]earch files")
     utils.n_keymap("<leader>fb", MiniPick.builtin.buffers, "Find [B]uffers")
@@ -31,5 +31,13 @@ later(function()
     require("which-key").add({
         mode = "n",
         { "<leader>f", group = "[F]ind" },
+    })
+
+    local indent = require("mini.indentscope")
+    indent.setup({
+        draw = {
+            delay = 0,
+            animation = indent.gen_animation.none(),
+        },
     })
 end)

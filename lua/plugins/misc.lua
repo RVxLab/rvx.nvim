@@ -31,7 +31,4 @@ later(function()
 
     add("folke/todo-comments.nvim")
     require("todo-comments").setup()
-
-    add("lukas-reineke/indent-blankline.nvim")
-    require("ibl").setup()
 end)
