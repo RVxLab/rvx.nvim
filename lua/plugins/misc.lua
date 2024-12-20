@@ -3,9 +3,6 @@ local add, later = MiniDeps.add, MiniDeps.later
 later(function()
     add("jessarcher/vim-heritage")
 
-    add("windwp/nvim-autopairs")
-    require("nvim-autopairs").setup()
-
     add("tpope/vim-eunuch")
     add("tpope/vim-surround")
 

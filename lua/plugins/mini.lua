@@ -40,4 +40,6 @@ later(function()
             animation = indent.gen_animation.none(),
         },
     })
+
+    require("mini.pairs").setup()
 end)
