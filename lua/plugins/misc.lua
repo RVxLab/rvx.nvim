@@ -4,7 +4,6 @@ later(function()
     add("jessarcher/vim-heritage")
 
     add("tpope/vim-eunuch")
-    add("tpope/vim-surround")
 
     add("stevearc/dressing.nvim")
     require("dressing").setup()
