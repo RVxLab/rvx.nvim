@@ -68,8 +68,6 @@ later(function()
                 port = 9003,
             },
         }
-
-        vim.notify("Set up Xdebug with DAP")
     end
 
     -- JavaScript
