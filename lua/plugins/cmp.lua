@@ -7,7 +7,7 @@ later(function()
             "rafamadriz/friendly-snippets",
             "folke/lazydev.nvim",
         },
-        checkout = "v0.7.6", -- Version is needed for download
+        checkout = "v0.8.0", -- Version is needed for download
     })
 
     require("lazydev").setup({
