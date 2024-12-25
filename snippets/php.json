@@ -1,0 +1,39 @@
+{
+    "phpfile": {
+        "prefix": "phpfile",
+        "body": [
+            "<?php",
+            "",
+            "declare(strict_types=1);",
+            "",
+            "$0"
+        ],
+        "description": "Empty PHP file"
+    },
+    "Invoke method": {
+        "prefix": "invoke",
+        "body": [
+            "public function __invoke(${1})",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Create __invoke magic method"
+    },
+    "pest test": {
+        "prefix": "pest",
+        "body": [
+            "it('${1:can do this thing}', function (): void {",
+            "\t$0",
+            "});"
+        ],
+        "description": "Create a Pest test case"
+    },
+    "pest todo": {
+        "prefix": "pesttodo",
+        "body": [
+            "it('${1:can do this thing}')->todo();"
+        ],
+        "description": "Create a Pest test marked as todo"
+    }
+}

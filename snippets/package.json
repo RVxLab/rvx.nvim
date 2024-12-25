@@ -1,0 +1,13 @@
+{
+    "name": "rvx-snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "php"
+                ],
+                "path": "./php.json"
+            }
+        ]
+    }
+}
