@@ -27,4 +27,6 @@ later(function()
 
     add("folke/todo-comments.nvim")
     require("todo-comments").setup()
+
+    add("nvim-lua/plenary.nvim")
 end)
