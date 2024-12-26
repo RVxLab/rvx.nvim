@@ -133,11 +133,8 @@ later(function()
         intelephense = {
             filetypes = { "php", "blade" },
             settings = {
-                intelephense = {
-                    environment = {
-                        phpVersion = "8.3.0",
-                    },
-                },
+                ["intelephense.environment.phpVersion"] = "8.3.0",
+                ["intelephense.files.maxSize"] = 2 * math.pow(1024, 3), -- 2MB
             },
         },
     }
