@@ -35,5 +35,29 @@
             "it('${1:can do this thing}')->todo();"
         ],
         "description": "Create a Pest test marked as todo"
+    },
+    "empty class file": {
+        "prefix": "classfile",
+        "body": [
+            "<?php",
+            "",
+            "declare(strict_types=1);",
+            "",
+            "namespace $1",
+            "",
+            "${2|class,interface,enum,trait|} $TM_FILENAME_BASE",
+            "{",
+            "\t$0",
+            "}",
+            ""
+        ],
+        "description": "An empty class, interface, trait or enum file"
+    },
+    "current class name": {
+        "prefix": "classname",
+        "body": [
+            "$TM_FILENAME_BASE"
+        ],
+        "description": "The name of the current class"
     }
 }
