@@ -1,3 +1,4 @@
+local utils = require("utils")
 local add, later = MiniDeps.add, MiniDeps.later
 
 later(function()
@@ -18,10 +19,23 @@ later(function()
         },
     })
 
-    require("blink.cmp").setup({
-        keymap = {
+    local keymap = vim.tbl_extend(
+        "keep",
+        {
             preset = "enter",
         },
+        utils.map_with_keys(utils.range(1, 5), function(value)
+            local key = string.format("<C-%d>", value)
+            local fn = function(cmp)
+                cmp.accept({ index = value })
+            end
+
+            return key, { fn }
+        end)
+    )
+
+    require("blink.cmp").setup({
+        keymap = keymap,
         completion = {
             list = {
                 selection = "manual",
