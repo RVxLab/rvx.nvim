@@ -24,6 +24,7 @@ later(function()
     require("mini.splitjoin").setup()
 
     require("mini.pick").setup()
+    require("mini.extra").setup()
     utils.n_keymap("<leader>ff", MiniPick.builtin.files, "Find [F]iles")
     utils.n_keymap("<leader>fs", MiniPick.builtin.grep_live, "[S]earch files")
     utils.n_keymap("<leader>fb", MiniPick.builtin.buffers, "Find [B]uffers")

@@ -19,15 +19,22 @@ local function on_attach(client, buffer)
         })
     end
 
-    local telescope = require("telescope.builtin")
+    local lsp_pick = function(scope)
+        return function()
+            MiniExtra.pickers.lsp({
+                scope = scope,
+            })
+        end
+    end
 
     keymap("<C-x>", vim.diagnostic.open_float, "Open diagnostics in float", buffer)
     keymap("<leader>ca", vim.lsp.buf.code_action, "Code [a]ction", buffer)
     keymap("[d", vim.diagnostic.goto_prev, "Go to previous error", buffer)
     keymap("]d", vim.diagnostic.goto_next, "Go to previous error", buffer)
-    keymap("<leader>cr", telescope.lsp_references, "Find references", buffer)
-    keymap("<leader>ci", telescope.lsp_implementations, "Find implementations", buffer)
-    keymap("<leader>cd", telescope.lsp_definitions, "Go to definition", buffer)
+    keymap("<leader>cr", lsp_pick("references"), "Find references", buffer)
+    keymap("<leader>ci", lsp_pick("implementation"), "Find implementations", buffer)
+    keymap("<leader>cd", lsp_pick("definition"), "Go to definition", buffer)
+    keymap("<leader>cs", lsp_pick("document_symbol"), "Go to symbol in document", buffer)
     keymap("<leader>cn", vim.lsp.buf.rename, "Re[n]ame symbol", buffer)
     keymap("<leader>i", function()
         local filter = {

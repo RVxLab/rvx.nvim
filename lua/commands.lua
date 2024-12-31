@@ -9,16 +9,27 @@ vim.api.nvim_create_user_command("RvxDumpPlugins", function(opts)
         { name = "mini.indentscope", url = "https://github.com/echasnovski/mini.indentscope" },
         { name = "mini.surround", url = "https://github.com/echasnovski/mini.surround" },
         { name = "mini.pairs", url = "https://github.com/echasnovski/mini.pairs" },
+        { name = "mini.extra", url = "https://github.com/echasnovski/mini.extra" },
     }
 
     local format = opts.fargs[1] or "json"
 
     for _, plugin in ipairs(MiniDeps.get_session()) do
         if plugin.name ~= nil and plugin.source ~= nil then
-            table.insert(plugins, {
-                name = plugin.name,
-                url = plugin.source,
-            })
+            local found = false
+
+            for _, current_plugin in ipairs(plugins) do
+                if current_plugin.name == plugin.name then
+                    found = true
+                end
+            end
+
+            if not found then
+                table.insert(plugins, {
+                    name = plugin.name,
+                    url = plugin.source,
+                })
+            end
         end
     end
 

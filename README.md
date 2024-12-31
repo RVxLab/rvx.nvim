@@ -34,6 +34,7 @@ My Neovim config from scratch based on [mini.nvim](https://github.com/echasnovsk
 - [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 - [mason.nvim](https://github.com/williamboman/mason.nvim)
+- [mini.extra](https://github.com/echasnovski/mini.extra)
 - [mini.icons](https://github.com/echasnovski/mini.icons)
 - [mini.indentscope](https://github.com/echasnovski/mini.indentscope)
 - [mini.pairs](https://github.com/echasnovski/mini.pairs)
