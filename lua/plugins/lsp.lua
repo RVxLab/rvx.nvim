@@ -140,8 +140,45 @@ later(function()
         intelephense = {
             filetypes = { "php", "blade" },
             settings = {
-                ["intelephense.environment.phpVersion"] = "8.3.0",
-                ["intelephense.files.maxSize"] = 2 * math.pow(1024, 3), -- 2MB
+                intelephense = {
+                    environment = {
+                        phpVersion = utils.invoke(function()
+                            -- Try to extract PHP version from composer.json
+                            if vim.fn.filereadable("composer.json") then
+                                local composer_json = vim.fn.json_decode(vim.fn.readfile("composer.json"))
+                                local require_block = composer_json.require or {}
+                                local php_version = require_block.php or ""
+
+                                local _, _, major, minor = string.find(php_version, "(%d+).(%d+)")
+
+                                if major ~= nil and minor ~= nil then
+                                    return string.format("%d.%d.0", major, minor)
+                                end
+                            end
+
+                            -- Try to extract PHP version from the installed version
+                            if vim.fn.executable("php") then
+                                local php = io.popen("php -v")
+
+                                if php then
+                                    local version_info = php:read("*a")
+                                    php:close()
+
+                                    local _, _, major, minor = string.find(version_info, "PHP (%d+).(%d)+")
+
+                                    if major ~= nil and minor ~= nil then
+                                        return string.format("%d.%d.0", major, minor)
+                                    end
+                                end
+                            end
+
+                            return "8.3.0"
+                        end),
+                    },
+                    files = {
+                        maxSize = 2 * math.pow(1024, 3), -- 2MB
+                    },
+                },
             },
         },
     }
@@ -155,8 +192,6 @@ later(function()
             "stylua",
         },
     })
-
-    local cmp = require("blink.cmp")
 
     require("mason-lspconfig").setup_handlers({
         function(server_name)
