@@ -9,7 +9,7 @@ later(function()
             "folke/lazydev.nvim",
             "echasnovski/mini.icons",
         },
-        checkout = "v0.8.0", -- Version is needed for download
+        checkout = "v0.9.2", -- Version is needed for download
     })
 
     require("lazydev").setup({
