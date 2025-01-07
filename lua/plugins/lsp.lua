@@ -63,7 +63,7 @@ later(function()
             "bashls",
             "cssls",
             "html",
-            "intelephense",
+            -- "intelephense",
             "lua_ls",
             "jsonls",
             "rust_analyzer",
@@ -144,7 +144,7 @@ later(function()
                     environment = {
                         phpVersion = utils.invoke(function()
                             -- Try to extract PHP version from composer.json
-                            if vim.fn.filereadable("composer.json") then
+                            if vim.fn.filereadable("composer.json") == 1 then
                                 local composer_json = vim.fn.json_decode(vim.fn.readfile("composer.json"))
                                 local require_block = composer_json.require or {}
                                 local php_version = require_block.php or ""
