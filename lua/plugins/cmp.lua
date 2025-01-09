@@ -38,7 +38,10 @@ later(function()
         keymap = keymap,
         completion = {
             list = {
-                selection = "manual",
+                selection = {
+                    preselect = false,
+                    auto_insert = true,
+                },
             },
             menu = {
                 draw = {
