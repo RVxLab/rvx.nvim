@@ -15,6 +15,12 @@ local prettier_opts = {
 
 later(function()
     add("stevearc/conform.nvim")
+    add({
+        source = "nvimtools/none-ls.nvim",
+        depends = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
 
     require("conform").setup({
         formatters_by_ft = {
@@ -43,4 +49,14 @@ later(function()
 
         require("conform").format(options)
     end, "[F]ormat the current buffer")
+
+    local none_ls = require("null-ls")
+
+    none_ls.setup({
+        sources = {
+            none_ls.builtins.diagnostics.phpstan.with({
+                prefer_local = "vendor/bin",
+            }),
+        },
+    })
 end)

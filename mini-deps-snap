@@ -18,6 +18,7 @@ return {
   neotest = "d66cf4e05a116957f0d3a7755a24291c7d1e1f72",
   ["neotest-jest"] = "514fd4eae7da15fd409133086bb8e029b65ac43f",
   ["neotest-pest"] = "b665a4881c706eea476fcaf79a21996e9b65514d",
+  ["none-ls.nvim"] = "3291afdff94e5083c7d6a4e9e661c3682c4b9b2a",
   ["nui.nvim"] = "53e907ffe5eedebdca1cd503b00aa8692068ca46",
   ["nvim-dap"] = "99807078c5089ed30e0547aa4b52c5867933f426",
   ["nvim-dap-ui"] = "e94d98649dccb6a3884b66aabc2e07beb279e535",

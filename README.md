@@ -47,6 +47,7 @@ My Neovim config from scratch based on [mini.nvim](https://github.com/echasnovsk
 - [neotest](https://github.com/nvim-neotest/neotest)
 - [neotest-jest](https://github.com/nvim-neotest/neotest-jest)
 - [neotest-pest](https://github.com/V13Axel/neotest-pest)
+- [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)
 - [nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
