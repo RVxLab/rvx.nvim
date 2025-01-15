@@ -56,6 +56,9 @@ later(function()
         sources = {
             none_ls.builtins.diagnostics.phpstan.with({
                 prefer_local = "vendor/bin",
+                extra_args = {
+                    "--memory-limit=-1", -- PHPStan eats memory like candy
+                },
             }),
         },
     })
