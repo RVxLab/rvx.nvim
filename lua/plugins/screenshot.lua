@@ -16,6 +16,15 @@ later(function()
         no_window_controls = true,
         to_clipboard = true,
         theme = theme,
+        language = function()
+            local language = vim.bo.filetype
+
+            if language == "blade" then
+                return "html"
+            end
+
+            return language
+        end,
     })
 
     utils.v_keymap("<leader>sc", silicon.clip, "[C]opy selected code snippet as screenshot")
