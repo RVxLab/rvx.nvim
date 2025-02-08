@@ -46,6 +46,15 @@ local function on_attach(client, buffer)
     end, "Toggle [i]nlay hints", buffer)
 end
 
+local function init_server(config, server_name)
+    local server_config = vim.tbl_deep_extend("keep", config[server_name] or {}, {
+        capabilities = utils.get_capabilities(),
+        on_attach = on_attach,
+    })
+
+    require("lspconfig")[server_name].setup(server_config)
+end
+
 later(function()
     add({
         source = "neovim/nvim-lspconfig",
@@ -195,14 +204,11 @@ later(function()
 
     require("mason-lspconfig").setup_handlers({
         function(server_name)
-            local server_config = vim.tbl_deep_extend("keep", config[server_name] or {}, {
-                capabilities = utils.get_capabilities(),
-                on_attach = on_attach,
-            })
-
-            require("lspconfig")[server_name].setup(server_config)
+            init_server(config, server_name)
         end,
     })
+
+    init_server(config, "intelephense")
 
     require("which-key").add({
         mode = "n",
