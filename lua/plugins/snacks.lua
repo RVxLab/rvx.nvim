@@ -7,6 +7,7 @@ now(function()
     require("snacks").setup({
         input = { enabled = true },
         notifier = { enabled = true },
+        scroll = { enabled = true },
     })
 
     utils.n_keymap("<leader>q", Snacks.bufdelete.delete, "Delete current buffer")
