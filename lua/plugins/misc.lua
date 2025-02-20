@@ -5,9 +5,6 @@ later(function()
 
     add("tpope/vim-eunuch")
 
-    add("stevearc/dressing.nvim")
-    require("dressing").setup()
-
     add("karb94/neoscroll.nvim")
     require("neoscroll").setup()
 

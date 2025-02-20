@@ -5,6 +5,7 @@ now(function()
     add("folke/snacks.nvim")
 
     require("snacks").setup({
+        input = { enabled = true },
         notifier = { enabled = true },
     })
 
