@@ -34,24 +34,6 @@ later(function()
 
     -- Load treesitter
     require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-            "lua",
-            "rust",
-            "tsx",
-            "javascript",
-            "typescript",
-            "vimdoc",
-            "vim",
-            "bash",
-            "json",
-            "yaml",
-            "php",
-            "blade",
-            "html",
-            "css",
-            "markdown",
-            "markdown_inline",
-        },
         auto_install = true,
         highlight = {
             enable = true,
