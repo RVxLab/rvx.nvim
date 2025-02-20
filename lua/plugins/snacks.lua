@@ -7,6 +7,7 @@ now(function()
     require("snacks").setup({
         input = { enabled = true },
         notifier = { enabled = true },
+        picker = { enabled = true },
         scroll = { enabled = true },
     })
 
