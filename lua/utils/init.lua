@@ -3,7 +3,6 @@ local keymap = require("utils.keymap")
 local os_utils = require("utils.os")
 local string_utils = require("utils.string")
 local table_utils = require("utils.table")
-local capability_utils = require("utils.capability")
 
 local M = {}
 
@@ -37,8 +36,5 @@ M.map = table_utils.map
 M.map_with_keys = table_utils.map_with_keys
 M.values = table_utils.values
 M.range = table_utils.range
-
--- Capabilities
-M.get_capabilities = capability_utils.get_capabilities
 
 return M
