@@ -13,4 +13,16 @@ return {
             vim.cmd.colorscheme("catppuccin")
         end,
     },
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+        },
+        opts = {
+            cmdline = {
+                view = "cmdline",
+            },
+        },
+    }
 }
