@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 return {
     {
         "catppuccin/nvim",
@@ -9,7 +11,7 @@ return {
                 dark = "macchiato",
             },
         },
-        config = function ()
+        config = function()
             vim.cmd.colorscheme("catppuccin")
         end,
     },
@@ -24,5 +26,15 @@ return {
                 view = "cmdline",
             },
         },
-    }
+    },
+    {
+        "nvim-mini/mini.statusline",
+        opts = {},
+    },
+    {
+        "nvim-mini/mini.starter",
+        opts = {
+            header = utils.bind(require, "art.header"),
+        },
+    },
 }
