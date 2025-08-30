@@ -2,7 +2,7 @@
 
 My Neovim config from scratch based on [mini.nvim](https://github.com/echasnovski/mini.nvim).
 
-> ⚠ Migrated to [Forgejo](https://code.rvx.works).
+> ⚠ Migrated to [Forgejo](https://code.rvx.works/RVxLab/rvx.nvim).
 
 ## Features
 
