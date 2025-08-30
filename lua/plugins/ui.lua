@@ -28,6 +28,16 @@ return {
         },
     },
     {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            utils.lazy_key(utils.leader("?"), function()
+                require("which-key").show()
+            end, "Show keymaps using which-key"),
+        },
+    },
+    {
         "nvim-mini/mini.statusline",
         opts = {},
     },

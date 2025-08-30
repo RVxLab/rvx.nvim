@@ -60,4 +60,10 @@ function M.lazy_key(mapping, action, description, opts)
     })
 end
 
+---Create a <leader> keybind
+---@param keybind string
+function M.leader(keybind)
+    return string.format("<leader>%s", keybind)
+end
+
 return M

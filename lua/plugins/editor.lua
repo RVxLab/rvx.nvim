@@ -34,4 +34,8 @@ return {
         "nvim-mini/mini.surround",
         opts = {},
     },
+    {
+        "nvim-mini/mini.splitjoin",
+        opts = {},
+    },
 }

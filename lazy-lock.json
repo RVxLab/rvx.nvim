@@ -8,8 +8,10 @@
   "lazydev.nvim": { "branch": "main", "commit": "2367a6c0a01eb9edb0464731cc0fb61ed9ab9d2c" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "f2fa60409630ec2d24acf84494fb55e1d28d593c" },
   "mason.nvim": { "branch": "main", "commit": "197f6352c276bbc2d25541dfce00ec50d1a4e88f" },
+  "mini.extra": { "branch": "main", "commit": "a4ea6fc035906b1e9494f6e249ca387b57e8308f" },
   "mini.icons": { "branch": "main", "commit": "f9a177c11daa7829389b7b6eaaec8b8a5c47052d" },
   "mini.pick": { "branch": "main", "commit": "51680e9d67bdf657209aaef4117a4dcc61e8428c" },
+  "mini.splitjoin": { "branch": "main", "commit": "93b14b5e8e8107b77724b09763dcd6de58626af7" },
   "mini.starter": { "branch": "main", "commit": "98e3ca7fa53fa7c011df576c22c52c7501eca245" },
   "mini.statusline": { "branch": "main", "commit": "3c86b8a1cb67e347e91815b21662c28fd52ac144" },
   "mini.surround": { "branch": "main", "commit": "953fb53aa1d0b2ae4506d35fff0e0e7afc8ceb8d" },
@@ -18,5 +20,6 @@
   "nvim-lspconfig": { "branch": "master", "commit": "408cf07b97535825cca6f1afa908d98348712ba6" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "oil.nvim": { "branch": "master", "commit": "975a77cce3c8cb742bc1b3629f4328f5ca977dad" },
-  "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" }
+  "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
+  "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }

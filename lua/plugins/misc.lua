@@ -1,4 +1,4 @@
-local utils = require("utils");
+local utils = require("utils")
 
 return {
     {
@@ -6,7 +6,13 @@ return {
         lazy = false,
         priority = 1000,
         keys = {
-            utils.lazy_key("<leader>gg", function () Snacks.lazygit() end, "Open LazyGit"),
+            utils.lazy_key("<leader>gg", function()
+                Snacks.lazygit()
+            end, "Open LazyGit"),
         },
-    }
+    },
+    {
+        "nvim-mini/mini.extra",
+        opts = {},
+    },
 }

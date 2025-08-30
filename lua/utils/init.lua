@@ -19,6 +19,7 @@ M.keymap = keymap.keymap
 M.n_keymap = keymap.n_keymap
 M.v_keymap = keymap.v_keymap
 M.x_keymap = keymap.x_keymap
+M.leader = keymap.leader
 
 -- OS
 M.is_macos = os_utils.is_macos
