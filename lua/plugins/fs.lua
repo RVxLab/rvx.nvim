@@ -5,7 +5,7 @@ return {
         "stevearc/oil.nvim",
         version = "^2.0",
         keys = {
-            utils.lazy_key("-", "<Cmd>Oil<CR>", "Open File Explorer")
+            utils.lazy_key("-", "<Cmd>Oil<CR>", "Open File Explorer"),
         },
         ---@module 'oil'
         ---@type oil.SetupOpts
@@ -22,19 +22,20 @@ return {
             },
         },
         dependencies = {
-            { "echasnovski/mini.icons", opts = {} },
+            { "nvim-mini/mini.icons", opts = {} },
         },
         lazy = false,
     },
     {
-        "echasnovski/mini.pick",
+        "nvim-mini/mini.pick",
         version = false,
         keys = {
             utils.lazy_key("<leader>ff", "<Cmd>Pick files<CR>", "Find files"),
+            utils.lazy_key("<leader>fs", "<Cmd>Pick grep_live<CR>", "Search files"),
         },
         opts = {},
         dependencies = {
-            { "echasnovski/mini.icons", opts = {} },
+            { "nvim-mini/mini.icons", opts = {} },
         },
     },
 }
