@@ -2,6 +2,8 @@
 
 My Neovim config from scratch based on [mini.nvim](https://github.com/echasnovski/mini.nvim).
 
+> ⚠ Migrated to [Forgejo](https://code.rvx.works).
+
 ## Features
 
 - IDE for web and systems development
